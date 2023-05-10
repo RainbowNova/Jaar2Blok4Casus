@@ -10,3 +10,13 @@
 2. Go to the project folder / venv.
 3. "pip install pipreqs".
 4. python3 -m pipreqs.pipreqs
+
+
+## DIT MOET UITGEVOERD WORDEN VOORDAT ER GEWERKT KAN WORDEN
+installeer de nieuwste "node.js" en "svelte for vscode"
+1. cd sitemap/gameplatform
+2. npm install
+
+##Localhost site
+1. cd sitemap/gameplatform
+2. npm run dev
