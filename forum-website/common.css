@@ -1,0 +1,95 @@
+/*Use this for consistent themes throughout the entire forum.*/
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px auto 1fr 50px;
+}
+
+body {
+    margin: 0;
+    background-color: lightgray;
+    width: 100vw;
+    height: 100vh;
+
+    font-family: "Comic Sans", sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px auto 1fr 50px;
+}
+
+.main-body {
+    grid-column-start: 1;
+    grid-column-end: -1;
+
+    gap: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.header {
+    display: flex;
+    border: 1px solid #000000;
+}
+
+.footer {
+    border-top: 1px solid #000000;
+    padding: 12px;
+    padding-bottom: 28px;
+
+    grid-row-start: -1;
+    grid-row-end: -1;
+    grid-column-start: 1;
+    grid-column-end: -1;
+}
+
+.important_for_user {
+    background-color: white;
+}
+
+.button {
+    flex: 1;
+    background-color: #999999;
+}
+
+.button:hover {
+    background-color: #888888;
+}
+
+.button:active {
+    background-color: #777777;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+}
+
+td {
+    word-break: break-word;
+}
+
+th {
+    background-color: blue;
+    color: white;
+    font-size: 30px;
+}
+
+tr:nth-child(even) {
+    background-color: #888888;
+  }
+
+tr:nth-child(odd) {
+    background-color: 666666;
+}
