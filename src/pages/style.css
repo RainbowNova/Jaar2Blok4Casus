@@ -17,6 +17,8 @@ body {
   
   h1 {
     text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: normal;
   }
   
   .input-field {

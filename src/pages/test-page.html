@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test Page</title>
+    <style>
+      /* CSS styles for the colored background */
+        body {
+        background-color: #F1F1F1;
+        }
+
+        /* CSS styles for the moving icon */
+        .icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100px;
+        height: 100px;
+        background-color: #FFC107;
+        border-radius: 50%;
+        animation: moveIcon 2s infinite ease-in-out;
+        }
+
+        /* CSS animation for moving the icon */
+        @keyframes moveIcon {
+        0%, 100% {
+            transform: translate(-50%, -50%);
+        }
+        50% {
+            transform: translate(-50%, -60%);
+            }
+        }
+
+    </style>
+  </head>
+  <body>
+    <div class="icon"></div>
+    <div>
+        <h1>Testpage with moving icon</h1>
+    </div>
+  </body>
+</html>
