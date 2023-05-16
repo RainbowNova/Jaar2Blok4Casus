@@ -6,5 +6,5 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     
     console.log('Username:', username);
     console.log('Password:', password);
-  });
+});
   
