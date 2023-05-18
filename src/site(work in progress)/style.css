@@ -149,13 +149,13 @@ header {
     right: 0;
     width: 45px;
     height: 45px;
-    background: black ;
+    background: rgb(59, 59, 59) ;
     font-size: 2em;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom-left-radius: 20px;
+    border-bottom-left-radius: 10px;
     cursor: pointer;
     z-index: 1;
 }
@@ -239,10 +239,10 @@ header {
 .btn {
     width: 100%;
     height: 50px;
-    background: rgb(55, 54, 54);
+    background: rgb(59, 59, 59);
     border: none;
     outline: none;
-    border-radius: 5px;
+    border-radius: 2px;
     cursor: pointer;
     font-size: 1em;
     color: white;
@@ -253,7 +253,7 @@ header {
     color: black;
     text-align: center;
     font-weight: 470;
-    margin: 25px 0 10px;
+    margin: 20px 0 5px;
 }
 
 .login-register p a {
