@@ -95,7 +95,7 @@ header {
     border: 2px solid rgb(153, 151, 151, .5);
     border-radius: 15px;
     backdrop-filter: blur(15px);
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.473);
+    box-shadow: 0 0 30px rgba(72, 71, 73, 0.473);
     display: flex;
     justify-content: center;
     align-items: center;
