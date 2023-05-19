@@ -29,6 +29,15 @@ document.addEventListener('DOMContentLoaded', () => {
         var username = sanitizeInput(document.getElementById('register-username').value);
         var email = sanitizeInput(document.getElementById('register-email').value);
         var password = sanitizeInput(document.getElementById('register-password').value);
+        var password = WachtwoordHasher(password);
+
+        function WachtwoordHasher(Pword){
+            const g = 31;
+            let hash = 0;
+            for (const letter in Pword)
+            {hash = g * hash + letter;}
+            return hash;}
+        
     
         //var address = sanitizeInput(document.getElementById('address').value);
         //var dateOfBirth = sanitizeInput(document.getElementById('date-of-birth').value);
