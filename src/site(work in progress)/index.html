@@ -49,7 +49,7 @@
                     <label><input type="checkbox">Remeber me</label>
                     <a href="#">Forgot password?</a>
                 </div>
-                <button type="submit" class="btn">Log in</button>
+                <button type="submit" class="btn">Log In</button>
                 <div class="login-register">
                     <p>No excisting account? <a href="#" class="register-link">Register here!</a></p>
                 </div>
@@ -73,6 +73,16 @@
                     <label>Email</label>
                 </div>
                 <div class="input-box">
+                    <span class="icon"><ion-icon name="location-outline"></ion-icon></span>
+                    <input type="text" id="register-Address" required>
+                    <label>Address</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="calendar-outline"></ion-icon></span>
+                    <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="register-Date of Birth" required>
+                    <label>Date of Birth</label>
+                </div>
+                <div class="input-box">
                     <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
                     <input type="password" id="register-password" required>
                     <label>Password</label>
@@ -81,7 +91,7 @@
                 <div class="remember-forgot">
                     <label><input type="checkbox">Agree to terms of service</label>
                 </div>
-                <button type="submit" class="btn">Log in</button>
+                <button type="submit" class="btn">Create Account</button>
                 <div class="login-register">
                     <p>Already have an account? <a href="#" class="login-link">Log in</a></p>
                 </div>

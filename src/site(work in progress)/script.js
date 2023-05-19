@@ -29,6 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
         var username = sanitizeInput(document.getElementById('register-username').value);
         var email = sanitizeInput(document.getElementById('register-email').value);
         var password = sanitizeInput(document.getElementById('register-password').value);
+        var address = sanitizeInput(document.getElementById('register-Address').value);
+        var dateOfBirth = sanitizeInput(document.getElementById('register-Date of Birth').value);
         var password = WachtwoordHasher(password);
 
         function WachtwoordHasher(Pword){
@@ -37,15 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
             for (const letter in Pword)
             {hash = g * hash + letter;}
             return hash;}
-        
-    
-        //var address = sanitizeInput(document.getElementById('address').value);
-        //var dateOfBirth = sanitizeInput(document.getElementById('date-of-birth').value);
-        
+
         console.log('Register-Username:', username);
         console.log('Register-Email:', email);
         console.log('Register-Password:', password);
-        //console.log('Address:', address);
-        //console.log('Date of Birth:', dateOfBirth);
+        console.log('Register-Address:', address);
+        console.log('register-Date of Birth:', dateOfBirth);
     });
 });
