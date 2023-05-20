@@ -31,9 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
         var password = sanitizeInput(document.getElementById('register-password').value);
         var address = sanitizeInput(document.getElementById('register-Address').value);
         var dateOfBirth = sanitizeInput(document.getElementById('register-Date of Birth').value);
-        var password = WachtwoordHasher(password);
+        var password = PasswordHasher(password);
 
-        function WachtwoordHasher(Pword){
+        function PasswordHasher(Pword){
             const g = 31;
             let hash = 0;
             for (const letter in Pword)
