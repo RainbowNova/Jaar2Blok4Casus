@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device.width, initial-scale=1.0">
+    <title>Website login/register page</title>
+    <link rel="stylesheet" href="ProfileStyle.css">
+
+
+</head>
+
+<body>
+    <header>
+        <h2 class="logo">Damp</h2>
+        <nav class="navigation">
+            <!--here all pages to navigate to-->
+            <a href="../HomePage/index.html">Home</a>
+            <a href="../ProfilePage/Profile.html">Profile</a>
+            <a href="#">Store</a>
+            <a href="#">Forum</a>
+            <a href="#">About</a>
+        </nav>
+    </header>
+    <div id="container">
+        <div id="left-container">
+            <div id="profile-image"></div>
+            <div id="chat-menu">
+                <button class="chat-button"><img src="text-bubble-icon.png" alt="Chat"></button>
+                <button class="chat-button"><img src="three-dots-icon.png" alt="Options"></button>
+            </div>
+            <div id="user-info">
+                <p>General User Information</p>
+            </div>
+        </div>
+        <div id="right-container">
+            <div id="container2">
+                <div id="username">Username</div>
+                <div id="user-level">User Level</div>
+                <div id="game-list">
+                    <div class="game-item">
+                        <img src="game1.png" alt="Game 1">
+                        <p>Game 1</p>
+                    </div>
+                    <div class="game-item">
+                        <img src="game2.png" alt="Game 2">
+                        <p>Game 2</p>
+                    </div>
+                    <!-- Add more game items as needed -->
+                </div>
+            </div>
+            <div id="container3">
+                <ul id="friends-list">
+                    <li>
+                        <div class="friend-profile">
+                            <img src="friend1.png" alt="Friend 1">
+                            <p>Friend 1</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="friend-profile">
+                            <img src="friend2.png" alt="Friend 2">
+                            <p>Friend 2</p>
+                        </div>
+                    </li>
+                    <!-- Add more friend items as needed -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
