@@ -9,3 +9,8 @@ EXPOSE 80
 
 # Start Nginx when the container launches
 CMD ["nginx", "-g", "daemon off;"]
+
+
+#Create image with: docker build -t <Name> .
+#Run image with: docker run -p 80:80 <Name>
+
