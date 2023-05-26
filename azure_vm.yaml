@@ -7,7 +7,6 @@
         resource_group: B2C6A
         name: Groep1_test_Vnet
         address_prefixes: 10.0.0.0/16
-        subnet_name: mySubnet
         subnet_prefix: 10.0.0.0/24
         state: present
          client_id: 07e8cb94-0fa9-4921-8592-7bc71c7673ad
@@ -42,7 +41,7 @@
         vm_size: StandardSSD_LRS
         admin_username: 07e8cb94-0fa9-4921-8592-7bc71c7673ad
         admin_password: -dl8Q~QTwbgmO5jpThtSe-lLLEKjcz.0N8C79aRB
-        network_interfaces: myNIC
+        network_interfaces: Groep1_test_NIC
         image:
           offer: UbuntuServer
           publisher: Canonical
