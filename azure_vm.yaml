@@ -28,9 +28,8 @@
       azure_rm_networkinterface:
         resource_group: B2C6A
         name: Groep1_test_NIC
-        virtual_network: myVnet
-        subnet: mySubnet
-        public_ip_name: myPublicIP
+        virtual_network: Groep1_test_Vnet
+        public_ip_name: Groep1_test_PublicIP
         state: present
         client_id: 07e8cb94-0fa9-4921-8592-7bc71c7673ad
         secret: -dl8Q~QTwbgmO5jpThtSe-lLLEKjcz.0N8C79aRB
