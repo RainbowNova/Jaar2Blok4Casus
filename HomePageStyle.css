@@ -20,10 +20,10 @@ body {
 
 header {
     position: fixed;
-    height: 70px;
     top: 0;
     left: 0;
     width: 100%;
+    height: 70px;
     padding: 20px 100px;
     background: rgba(48, 41, 144, 0.514);
     display: flex;
