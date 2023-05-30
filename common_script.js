@@ -40,12 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function PasswordHasher(Pword) {
             const g = 31;
-            let hash = 0;
-            for (const letter in Pword) {
-                hash = g * hash + letter;
-            }
-            return hash;
-        }
+            var hash = 0;
+            console.log(Pword);
+            for (var i = 0; i < Pword.length; i++) {
+                hash = g * hash + Pword.charCodeAt(Pword.indexOf(Pword.charAt(i)));}
+            return hash;}
 
         console.log('Register-Username:', username);
         console.log('Register-Email:', email);
