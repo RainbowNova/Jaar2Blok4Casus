@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const g = 31;
             let hash = 0;
             for (const letter in Pword) {
-                hash = g * hash + Pword.charCodeAt(indexOf(letter));}
+                hash = g * hash + charCodeAt(IndexOf(letter));}
             return hash;}
 
         console.log('Register-Username:', username);
