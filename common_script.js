@@ -41,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
         function PasswordHasher(Pword) {
             const g = 31;
             var hash = 0;
-            console.log(Pword);
             for (var i = 0; i < Pword.length; i++) {
                 hash = g * hash + Pword.charCodeAt(Pword.indexOf(Pword.charAt(i)));}
             return hash;}
