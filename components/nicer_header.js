@@ -11,7 +11,7 @@ class Header extends HTMLElement {
     <h2 class="logo">Damp</h2>
     <nav class="navigation">
         <!--here all pages to navigate to-->
-        <a href="../HomePage/index.html">Home</a>
+        <a href="../index.html">Home</a>
         <a href="../ProfilePage/Profile.html">Profile</a>
         <a href="../StorePage/Store.html">Store</a>
         <a href="../ForumPage/Forum.html">Forum</a>
