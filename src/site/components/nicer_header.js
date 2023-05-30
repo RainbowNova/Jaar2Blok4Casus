@@ -7,12 +7,19 @@ class Header extends HTMLElement {
   
   connectedCallback() {
     this.innerHTML = `
-      <div class="header important_for_user">
-        <button class="button">Games</button>
-        <button class="button">Shop</button>
-        <button class="button">Community</button> 
-        <button class="button">Gebruikersnaam</button>
-    </div>
+    <header>
+    <h2 class="logo">Damp</h2>
+    <nav class="navigation">
+        <!--here all pages to navigate to-->
+        <a href="../HomePage/index.html">Home</a>
+        <a href="../ProfilePage/Profile.html">Profile</a>
+        <a href="#">Store</a>
+        <a href="#">Forum</a>
+        <a href="#">About</a>
+        
+        <button class="btnLogin-popup">Login</button>
+    </nav>
+</header>
     `;
   }
 }
