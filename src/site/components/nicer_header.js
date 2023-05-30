@@ -13,9 +13,9 @@ class Header extends HTMLElement {
         <!--here all pages to navigate to-->
         <a href="../HomePage/index.html">Home</a>
         <a href="../ProfilePage/Profile.html">Profile</a>
-        <a href="#">Store</a>
-        <a href="#">Forum</a>
-        <a href="#">About</a>
+        <a href="../StorePage/Store.html">Store</a>
+        <a href="../ForumPage/Forum.html">Forum</a>
+        <a href="../AboutPage/About.html">About</a>
         
         <button class="btnLogin-popup">Login</button>
     </nav>
