@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 hash = g * hash + Pword.charCodeAt(Pword.indexOf(Pword.charAt(i)));}
             return hash;}
 
+
         console.log('Register-Username:', username);
         console.log('Register-Email:', email);
         console.log('Register-Password:', hashedPassword);

@@ -6,6 +6,14 @@ class login extends HTMLElement {
     }
   
   connectedCallback() {
+    /* use this if you want to use firebase login/register
+
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-database.js"></script>
+    <script src="firebase.js"></script>
+    
+    */
+
     this.innerHTML = `
     <div class="wrapper">
         
@@ -81,6 +89,8 @@ class login extends HTMLElement {
         </div>
 <!--______________________________________________________________________________________________-->
     </div>
+
+
     `;
   }
 }
