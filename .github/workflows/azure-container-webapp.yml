@@ -30,9 +30,10 @@ env:
   AZURE_WEBAPP_NAME: DampAzure  # set this to the name of your Azure Web App
 
 on:
-  push:
-    branches: [ "main" ]
-  workflow_dispatch:
+  workflow_run:
+    workflows: ["Mocha Tests"]
+    types:
+      - completed
 
 permissions:
   contents: read
@@ -43,6 +44,9 @@ jobs:
     permissions:
       contents: read
       packages: write
+    
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}  # Only run if the dependent workflow (unit test workflow) was successful
+
 
     steps:
       - uses: actions/checkout@v3
