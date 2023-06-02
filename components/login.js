@@ -20,7 +20,7 @@ class login extends HTMLElement {
         <span class="icon-close"><ion-icon name="close"></ion-icon></span>
         <div class="form-box login">
             <h2>Log in</h2>
-            <p> Enter user information to log into your excisting account!</p>
+            <p> Enter user information to log into your existing account!</p>
             <!--login form-->
             <form action="#" id="login-form">
                 
@@ -36,12 +36,12 @@ class login extends HTMLElement {
                 </div>
 
                 <div class="remember-forgot">
-                    <label><input type="checkbox">Remeber me</label>
+                    <label><input type="checkbox">Remember me</label>
                     <a href="#">Forgot password?</a>
                 </div>
                 <button type="submit" class="btn">Log In</button>
                 <div class="login-register">
-                    <p>No excisting account? <a href="#" class="register-link">Register here!</a></p>
+                    <p>No existing account? <a href="#" class="register-link">Register here!</a></p>
                 </div>
             </form>
         </div>
