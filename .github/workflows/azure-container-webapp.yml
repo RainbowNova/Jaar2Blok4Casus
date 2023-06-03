@@ -34,7 +34,7 @@ on:
     workflows: ["Mocha Tests"]
     types:
       - completed
-  workflow_dispatch
+  workflow_dispatch:
 
 permissions:
   contents: read
