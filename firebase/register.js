@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         storeAccount(username, email, location, address, birthday, password);
     }
 
-    const storeAccount = (username, email, location, address, birthday, password) => {
+    function storeAccount(username, email, location, address, birthday, password) {
         var newRegisterFormDB = registerFormDB.push();
         newRegisterFormDB.set({
             username: username,
@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             password: password
         });
     }
+    
 
 
     const getElementVal = (id) => {
