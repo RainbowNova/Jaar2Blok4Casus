@@ -1,5 +1,3 @@
-/*Template code from: https://www.freecodecamp.org/news/reusable-html-components-how-to-reuse-a-header-and-footer-on-a-website/*/
-
 class login extends HTMLElement {
     constructor() {
       super();
