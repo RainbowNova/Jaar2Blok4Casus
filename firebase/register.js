@@ -1,16 +1,4 @@
-const firebaseConfig = {
-    apiKey: "AIzaSyBlxNS6DfDzWIHeksRpE8brSO0odUQrbwM",
-    authDomain: "gameplatform-db.firebaseapp.com",
-    databaseURL: "https://gameplatform-db-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "gameplatform-db",
-    storageBucket: "gameplatform-db.appspot.com",
-    messagingSenderId: "545500280718",
-    appId: "1:545500280718:web:95e285f583b0157adf56df",
-    measurementId: "G-R2NMTXLKF5"
-};
 
-//initialize firebase
-firebase.initializeApp(firebaseConfig);
 
 //Register account into accounts table
 
