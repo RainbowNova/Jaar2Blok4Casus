@@ -10,6 +10,7 @@ const firebaseConfig = {
 };
 
 
+
 firebase.initializeApp(firebaseConfig);
 
 
@@ -28,19 +29,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
             for (const userId in usersData) {
-            if (usersData.hasOwnProperty(userId)) {
-                const user = usersData[userId];
+                if (usersData.hasOwnProperty(userId)) {
+                    const user = usersData[userId];
 
-                const email = user.email;
-                const password = user.password;
+                    const email = user.email;
+                    const password = user.password;
+                    
+                    if (email == document.getElementById("email").value && password == document.getElementById("password").value) {
+                        console.log("Login successful");
+                        console.log("Email: ", email);
+                        //TO DO: Store user data in session storage for later use in other pages
+                        break;
+                    }
 
-                console.log("Email: ", email);
-                console.log("Password: ", password);
-            }
+
+                }
             }
         })
         .catch((error) => {
             console.log("Error reading data: ", error);
         });
     }	
+
+
 });
