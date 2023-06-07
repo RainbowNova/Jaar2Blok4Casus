@@ -8,9 +8,13 @@ At minimum:
 // TODO: when creating a topic, check if a topic with the same name already exists within the same category. Inform user.
 // TODO: when a category, topic or post is succesfully created, all relevant data should be sent to the database.
 
+// TODO: when a category, topic or post is created, all input fields should be sanitized / checked for injection / exploits.
+
 const CategoryAdd = document.querySelector(".add-category");
 const TopicAdd = document.querySelector(".add-topic");
 const PostCreate = document.querySelector(".create-post");
+
+const DivContainer = document.getElementById("div-container");
 
 CategoryAdd.addEventListener("click", AddCategory);
 TopicAdd.addEventListener("click", AddTopic);
@@ -21,7 +25,7 @@ function AddCategory(){
     newDiv.classList.add('div-shadow');
     var content = document.createTextNode("New category name here");
     newDiv.appendChild(content);
-    document.body.appendChild(newDiv);
+    DivContainer.appendChild(newDiv);
 }
 
 function AddTopic(){
@@ -29,7 +33,7 @@ function AddTopic(){
     newDiv.classList.add('div-shadow');
     var content = document.createTextNode("New topic name here");
     newDiv.appendChild(content);
-    document.body.appendChild(newDiv);
+    DivContainer.appendChild(newDiv);
 }
 
 function CreatePost(){
@@ -37,5 +41,5 @@ function CreatePost(){
     newDiv.classList.add('div-shadow');
     var content = document.createTextNode("New post name here");
     newDiv.appendChild(content);
-    document.body.appendChild(newDiv);
+    DivContainer.appendChild(newDiv);
 }
