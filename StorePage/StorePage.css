@@ -81,3 +81,7 @@ navbar {
     z-index: 99;
     backdrop-filter: blur(40px);
 }
+
+.container-fluid{
+  background: rgba(48, 41, 144, 0.514);
+}
