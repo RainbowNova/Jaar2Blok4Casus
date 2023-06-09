@@ -15,7 +15,7 @@ class Header extends HTMLElement {
                   <a href="../ForumPage/Forum.html">Forum</a>
                   <a href="../AboutPage/About.html">About</a>
                   
-                  <button class="btnLogin-popup">Login</button>
+                  <button id="loginButton" class="btnLogin-popup">Login</button>
               </nav>
           </header>
       `;
@@ -24,7 +24,24 @@ class Header extends HTMLElement {
       btnPopup.addEventListener('click', () => {
           window.location.href = "../LoginPage/login.html";
       });
+
+       /*removes login button if user is logged in*/
+
+        /*function userLoggedIn() {
+        if (sessionStorage.getItem("username") != null) {
+            return true;
+        }
+        return false;
+        }
+
+        if (userLoggedIn()) {
+            document.getElementById("loginButton").style.display = "none";
+        }
+        */
+        
   }
 }
 
 customElements.define('header-component', Header);
+
+
