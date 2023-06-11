@@ -1,5 +1,5 @@
 body {
-    justify-content: normal;
+    justify-content: normal !important;
     align-items: normal;
     padding-top: 0px;
     margin-top: 0px;
@@ -7,10 +7,6 @@ body {
     background: rgba(48, 41, 144, 0.514);
     background-size: cover;
     background-repeat: no-repeat;
-}
-
-.container-fluid{
-    padding:0;
 }
 
 header {

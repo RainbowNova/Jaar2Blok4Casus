@@ -2,6 +2,7 @@
 
 /*TODO: Replace the table title with the category names inside of the Database*/
 /*TODO: Replace all data inside each table with the related info inside of the Database.*/
+/*TODO: Replace the hardcoded <tr>s with 1 <tr> per topic found in the database.*/
 
 class category_table extends HTMLElement {
     constructor() {
@@ -11,9 +12,9 @@ class category_table extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
     <div class="row">
-    <h1>Category name here</h1>
+    <h1>{Category}</h1>
     </div>
-    <table class = table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Topic name</th>
