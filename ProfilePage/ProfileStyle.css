@@ -120,3 +120,8 @@ th, td {
     width: 130px;
     height: 100px;
 }
+
+#Games-table {
+    overflow-x: scroll;
+}
+
