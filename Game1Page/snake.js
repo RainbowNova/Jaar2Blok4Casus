@@ -1,5 +1,4 @@
-
-//board voor snake
+//board for snake
 var blockSize= 25;
 var rows= 20;
 var cols= 20;
@@ -15,15 +14,16 @@ var velocityY= 0;
 
 var snakeBody= [];
 
-//eten
+//food
 var foodX;
 var foodY;
 
-//score
-var score= 0;
+//points
+var points = 0;
+var level = 0;
 
-//game over regels
-var gameOver= false; 
+//game over rules
+var gameOver = false; 
 
 window.onload = function() {
     document.getElementById("replayButton").addEventListener("click", replayGame); //replay button
@@ -36,7 +36,7 @@ window.onload = function() {
     placeFood();
     document.addEventListener("keyup", changeDirection);
     //update();
-    setInterval(update, 1000/10); //update elke 100 ms
+    setInterval(update, 1000/10); //updated every 100ms
 }
 
 var foodImages = [
@@ -45,18 +45,18 @@ var foodImages = [
   'resources/foodApple.png', 
   'resources/foodCherries.png'];
 
-// Variabele om bij te houden welke afbeelding actief is
+// Variable for keeping track of active image
 var activeFoodImage;
-// Afbeelding voor het hoofd van de slang
+
 var snakeHeadImage = new Image();
 snakeHeadImage.src = "resources/snakeHead.png";
-// Array met afbeeldingen voor de staart van de slang
+// Array for img snake tail
 var snakeTailImages = [
-  new Image(), // Afbeelding voor het eerste staartsegment
-  new Image(), // Afbeelding voor het tweede staartsegment
+  new Image(), // Img first segment
+  new Image(), // Img scnd segment
   // Voeg hier meer afbeeldingen toe voor extra staartsegmenten indien nodig
 ];
-// Laad de afbeeldingen voor de staart van de slang
+// Load image for snake tail
 for (let i = 0; i < snakeTailImages.length; i++) {
   snakeTailImages[i].src = "resources/snakeTail.png";
 }
@@ -66,31 +66,28 @@ function update() {
     return;
   }
 
-  // Nieuwe achtergrondafbeelding
+  // Background image
   var backgroundImage = new Image();
   backgroundImage.src = "resources/backgroundGrass.jpg";
 
-  // Wacht tot de afbeelding is geladen
+  // Wait for image to load
   backgroundImage.onload = function () {
-    // Functie om de achtergrond te tekenen
+    // Draw background
     function drawBackground() {
-      // Teken de nieuwe achtergrondafbeelding
       context.drawImage(backgroundImage, 0, 0, board.width, board.height);
 
-      // Teken de borders
+      // Draw borders
       context.strokeStyle = "black";
       context.lineWidth = 2;
       context.strokeRect(0, 0, board.width, board.height);
     }
 
-    // Roep de functie aan om de achtergrond te tekenen
     drawBackground();
 
-    // Roep de functie aan om de speler en het voedsel te tekenen
     drawPlayerAndFood();
   };
 
-  // Functie om de speler en het voedsel te tekenen
+  // Draw player and food
   function drawPlayerAndFood() {
     context.fillStyle = "black";
     snakeX += velocityX * blockSize;
@@ -98,36 +95,36 @@ function update() {
     context.fillRect(snakeX, snakeY, blockSize, blockSize);
     for (let i = 0; i < snakeBody.length; i++){
         context.fillRect(snakeBody[i][0], snakeBody[i][1], blockSize, blockSize);
-    }  //draws nieuwe snake body bij elke appel gegeten
+    }  //draws new bodypart for every food eaten
 
-    //"game over" voorwaarden
+    //"game over" conditions
     if (snakeX < 0 || snakeX > cols*blockSize || snakeY < 0 || snakeY > rows*blockSize) {
         gameOver= true;
     }
     for (let i = 0; i < snakeBody.length; i++){
         if (snakeX == snakeBody[i][0] && snakeY == snakeBody[i][1]) {
-            gameOver= true;
+            gameOver = true;
         }
     }
 
-    // Kies een willekeurige afbeelding voor het voedsel als deze nog niet is ingesteld
+    // Random image for food
     if (!activeFoodImage) {
       activeFoodImage = foodImages[Math.floor(Math.random() * foodImages.length)];
     }
 
-    // Maak een nieuw Image-object voor het voedsel
+    // Draw new image-object for food
     var foodImage = new Image();
     foodImage.src = activeFoodImage;
 
-    // Teken het voedsel als een afbeelding
+    // draw food as image
     context.drawImage(foodImage, foodX, foodY, blockSize, blockSize);
 
     if (snakeX === foodX && snakeY === foodY) {
       snakeBody.push([foodX, foodY]);
       placeFood();
-        keepScore();
+        keepPoints();
 
-      // Kies een nieuwe willekeurige afbeelding voor het voedsel
+      // Pick random image for food
       activeFoodImage = foodImages[Math.floor(Math.random() * foodImages.length)];
     }
 
@@ -151,6 +148,7 @@ function placeFood() {
 }
 
 function changeDirection(e) {
+  // function for moving snake
     if (e.code == "ArrowUp" && velocityY != 1) {
         velocityX = 0;
         velocityY = -1;
@@ -166,17 +164,16 @@ function changeDirection(e) {
     else if (e.code == "ArrowRight" && velocityX != -1) {
         velocityX = 1;
         velocityY = 0;
-    } //functie om snake te laten bewegen met toetsaanslagen
+    }  
 }
 
-function keepScore() {
-    score = score + 1;
-    document.getElementById("score").textContent = score; //houdt score bij
-}
 function replayGame() {
-    //reset de game om een nieuwe game te beginnen
+    // function for resetting game
     gameOver = false;
-    score = 0;
+    points = 0;
+    level = 1;
+    document.getElementById("points").textContent = points;
+    document.getElementById("level").textContent = "Level" + level;
     snakeX = blockSize * 5;
     snakeY = blockSize * 5;
     velocityX = 0;
@@ -184,9 +181,47 @@ function replayGame() {
     snakeBody = [];
     placeFood();
     document.getElementById("gameOverMessage").textContent = "";
-
     clearInterval(interval);
 
-    //start een nieuwe game loop
+    //start new game loop
     setInterval(update, 1000/10);
+}
+
+// for updating level based on points earned
+function updateLevel() {
+  if (points >= 100) {
+    level = 2;
+  } 
+  else if (points >=200 ) {
+    level = 3;
+  }
+  else if (points >=300 ) {
+    level = 4;
+  }
+  else if (points >=400 ) {
+    level = 5;
+  }
+  else if (points >=500 ) {
+    level = 4;
+  }
+  else if (points >=600 ) {
+    level = 5;
+  }
+
+  document.getElementById("level").textContent = "Level " + level;
+}
+
+function updateProfile() {
+  localStorage.setItem("points", points);
+  var level = Math.floor(points / 100) + 1;
+  document.getElementById("points").textContent = "Points " + points;
+  document.getElementById("level").textContent = "Level " + level;
+}
+
+function keepPoints() {
+  points += 1;
+  document.getElementById("points").textContent = points;
+  updateLevel;
+  localStorage.setItem("points", points);
+  updateProfile();
 }
