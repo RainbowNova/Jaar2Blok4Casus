@@ -115,3 +115,13 @@ th, td {
     text-align: center;
     line-height: 50%;
 }
+
+.gameImage{
+    width: 130px;
+    height: 100px;
+}
+
+#Games-table {
+    overflow-x: scroll;
+}
+

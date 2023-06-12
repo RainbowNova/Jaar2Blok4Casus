@@ -2,10 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const wrapper = document.querySelector('.wrapper');
     const loginLink = document.querySelector('.login-link');
     const registerLink = document.querySelector('.register-link');
-    const btnPopup = document.querySelector('.btnLogin-popup');
+   // const btnPopup = document.querySelector('.btnLogin-popup');
     const iconClose = document.querySelector('.icon-close');
 
-    
+    //eventlisteners
     registerLink.addEventListener('click', () => {
         wrapper.classList.add('active');
     });
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     iconClose.addEventListener('click', () => {
         window.location.href = "../index.html";
     });
-
+    
     document.getElementById('login-form').addEventListener('submit', function(event) {
         event.preventDefault();
         var username = sanitizeInput(document.getElementById('email').value);
@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         var dateOfBirth = sanitizeInput(document.getElementById('register-Date of Birth').value);
         var hashedPassword = PasswordHasher(password);
 
+        //password hasher, this has to be moved to the backend later
         function PasswordHasher(Pword) {
             const g = 31;
             var hash = 0;
@@ -42,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 hash = g * hash + Pword.charCodeAt(Pword.indexOf(Pword.charAt(i)));}
             return hash;}
 
-
+        //log user data to console
         console.log('Register-Username:', username);
         console.log('Register-Email:', email);
         console.log('Register-Password:', hashedPassword);
