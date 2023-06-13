@@ -1,22 +1,22 @@
-var pipex = 400
-var pipex2 = 750
-var pipey_1 = -150
-var pipey_2 = -150
-var pipey2_1 = 200
-var pipey2_2 = 200
+var pipex = 400;
+var pipex2 = 750;
+var pipey_1 = -150;
+var pipey_2 = -150;
+var pipey2_1 = 200;
+var pipey2_2 = 200;
 
-var birdx = 150
-var birdy = 200
-var fallingspeed = 2
+var birdx = 150;
+var birdy = 200;
+var fallingspeed = 2;
 
-var points = 0
-var pointsx = 550
+var points = 0;
+var pointsx = 550;
 
-var cloudx = 200
-var cloudx2 = 600
+var cloudx = 200;
+var cloudx2 = 600;
 
-var sunx = 550
-var speed = -0.1
+var sunx = 550;
+var speed = -0.1;
 
 function setup() {
   createCanvas(600,400);
@@ -57,12 +57,12 @@ function draw () {
   }
     ellipse(sunx,50,75,75);
   
-    sunx = sunx + speed
+    sunx = sunx + speed;
   
   if (sunx <= -37.5) {
-    speed = 0.1
+    speed = 0.1;
   }else if (sunx >= 637.5) {
-    speed = -0.1
+    speed = -0.1;
   }
     
   //Clouds
@@ -88,14 +88,14 @@ function draw () {
     ellipse(cloudx2 - 30,75,60,40);
     ellipse(cloudx2 + 40,150,70,50);
 
-  cloudx = cloudx - 0.5
+  cloudx = cloudx - 0.5;
   if (cloudx < -75) {
-    cloudx = 600
+    cloudx = 600;
   }
   
-  cloudx2 = cloudx2 - 0.25
+  cloudx2 = cloudx2 - 0.25;
   if (cloudx2 < -75) {
-    cloudx2 = 600
+    cloudx2 = 600;
   }
 
 
@@ -103,7 +103,7 @@ function draw () {
 //Bird
   //Body
   stroke(0);
-  fill(252,214,71)
+  fill(252,214,71);
   ellipse(150,birdy,50,45);
  
   //Eye
@@ -112,14 +112,14 @@ function draw () {
   ellipse(165,birdy-10,7,7);
   noStroke();
   fill(255,255,255);
-  ellipse(167,birdy-9,3,3)
+  ellipse(167,birdy-9,3,3);
  
   //Beak
   stroke(0);
   fill(255,0,0);
   triangle(173,birdy-10,185,birdy,173,birdy+10);
   strokeWeight(2);
-  line(175,birdy-1 ,183,birdy)
+  line(175,birdy-1 ,183,birdy);
  
   //Wing
   strokeWeight(1);
@@ -127,7 +127,7 @@ function draw () {
   fill(0,255,0);
   triangle(120,birdy+15,165,birdy,150,birdy+20);
   
-  birdy = birdy + fallingspeed
+  birdy = birdy + fallingspeed;
 
 
 
@@ -142,16 +142,16 @@ function draw () {
 //Pipe down
   stroke(0);
   fill(255,189,27);
-  rect(pipex,pipey2_1,75,240)
-  rect(pipex2,pipey2_2,75,240)
+  rect(pipex,pipey2_1,75,240);
+  rect(pipex2,pipey2_2,75,240);
   
-  pipex = pipex - 1
-  pipex2 = pipex2 - 1
+  pipex = pipex - 1;
+  pipex2 = pipex2 - 1;
   
   if (pipex <= -75) {
-    pipex = 600
+    pipex = 600;
   }else if (pipex2 <= -75) {
-    pipex2 = 600
+    pipex2 = 600;
   }
   
   if (pipex == 600) {
@@ -159,8 +159,8 @@ function draw () {
   }else if(pipex2 == 600) {
     pipey_2 = random(-190,0);
   }
-    pipey2_1 = pipey_1 + 390
-    pipey2_2 = pipey_2 + 390
+    pipey2_1 = pipey_1 + 390;
+    pipey2_2 = pipey_2 + 390;
 
   
   
@@ -168,7 +168,7 @@ function draw () {
   fill(241,255,28);
   textSize(50);
   if (pipex + 75 == birdx || pipex2 + 75 == birdx) {
-    points = points + 1
+    points = points + 1;
     text(points,pointsx,50);
   }else{
   text(points,pointsx,50);
@@ -259,17 +259,17 @@ function draw () {
 }
   
 function mousePressed() {
-  birdy = birdy - 50
+  birdy = birdy - 50;
 }
 
 function keyPressed() {
-  birdy = 200
-  pipex = 400
-  pipex2 = 750
-  cloudx = 200
-  cloudx2 = 600
-  points = 0
-  pointsx = 550
-  sunx = 550
+  birdy = 200;
+  pipex = 400;
+  pipex2 = 750;
+  cloudx = 200;
+  cloudx2 = 600;
+  points = 0;
+  pointsx = 550;
+  sunx = 550;
   loop(); 
 }
