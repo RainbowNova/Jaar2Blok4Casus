@@ -122,6 +122,16 @@ th, td {
 }
 
 #Games-table {
-    overflow-x: scroll;
+    overflow: scroll;
+}
+
+#Friends-table {
+    overflow: scroll;
+}
+
+.smallIcon {
+    font-size: 40px;
+    text-align: center;
+    line-height: 50%;
 }
 
