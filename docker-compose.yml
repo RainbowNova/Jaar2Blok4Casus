@@ -1,27 +1,22 @@
-version: "3.7"
+version: '3.7'
 
 services:
-  app:
-    image: node:12-alpine
-    command: sh -c "yarn install && yarn run dev"
+  web:
+    image: nginx:latest
     ports:
-      - 3000:3000
-    working_dir: /app
+      - '80:80'
     volumes:
-      - ./:/app
-    environment:
-      MYSQL_HOST: mysql
-      MYSQL_USER: root
-      MYSQL_PASSWORD: paranoid
-      MYSQL_DB: todos
+      - ./html:/usr/share/nginx/html
 
-  mysql:
+  db:
     image: mysql:latest
     volumes:
-      - todo-mysql-data:/var/lib/mysql
-    environment: 
-      MYSQL_ROOT_PASSWORD: paranoid
-      MYSQL_DATABASE: todos
+      - db-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: B2C6A
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password
 
 volumes:
-  todo-mysql-data:
+  db-data:

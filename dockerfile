@@ -4,7 +4,7 @@ FROM nginx
 # Install pip packages first. Run script later in the file!!!!
 
 # Copy the HTML files to the Nginx document root directory
-COPY . /usr/share/nginx/html
+# COPY . /usr/share/nginx/html
 
 # Expose port 80 to allow incoming traffic
 EXPOSE 80
