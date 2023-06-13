@@ -115,3 +115,13 @@ th, td {
     text-align: center;
     line-height: 50%;
 }
+
+.col {
+    text-align: center;
+}
+
+.imagecover1 {
+    display: block;
+    margin: 0 a;
+    width: 250px;
+}
