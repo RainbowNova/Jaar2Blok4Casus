@@ -118,6 +118,7 @@ th, td {
 
 .gameImage{
     width: 130px;
+    border-style: solid;
     height: 100px;
 }
 
