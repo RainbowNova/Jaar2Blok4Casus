@@ -4,82 +4,92 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../HomePageStyle.css">    
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="StorePage.css">    
+    <link rel="stylesheet" href="../HomePageStyle.css">  
     <script src="StorePage.js"></script>
     <script src="../components/nicer_header.js"></script>
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+
     <title>StorePage</title>
   </head>
   <body>
     <header-component></header-component>
 
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm-2"></div>
-          <div class="col-sm-8 border navbarcustom d-flex justify-content-between">
-              <div class="btn-group ">
-                <button type="button" class="btn btn-secondary">Jouw Winkel</button>
-              </div>
-              <div class="btn-group">
+        <div class="row gx-1 row-cols-3 mb-3">
+          <div class="col-2"></div>
+          <div class="col-8 navbarcustom">
+            <div class="row">
+              <div class="col-7 btn-group">
+                <a href="../StorePage/StorePage.html" class="btn btn-outline-primary" role="button">Winkel</a>
                 <button type="button" class="btn btn-secondary">Nieuw</button>
-              </div>
-              <div class="btn-group">
                 <button type="button" class="btn btn-secondary">Categorien</button>
-              </div>
-              <div class="btn-group">
                 <button type="button" class="btn btn-secondary">Winkelmand</button>
               </div>
-              <div class="btn-group">
-                <div class="col-sm-6 d-flex justify-content-end">
-                    <form class="d-flex">
-                      <input class="form-control me-sm-2" type="text" placeholder="Search">
-                      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                </div>
+              <div class="col-4 btn-group">
+                <input class="form-control col-1" type="text" placeholder="Search">
+                <button class="btn btn-secondary col" type="submit">Search</button>
               </div>
             </div>
-              
-
-
-
-            <!--<ul class="nav nav-pills nav-justified navbarcustom">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Jouw Winkel</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Nieuw</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Categorien</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Winkelmand</a>
-              </li>
-              <li>
-                <form class="d-flex">
-                  <input class="form-control me-sm-2" type="text" placeholder="Search">
-                  <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-                </form>
-              </li>
-            </ul>-->
-          <div class="col-sm-2"></div>
+          </div>
+          <div class="col-2"></div>
         </div>
 
-      
-
-      <!--<div class="row">
-        <div class="col-sm-2"></div>
-        <div class="col-sm-8">
-          <img src="./Images/csgo/CSGO2_main_image.jpg" alt="main csgo 2 foto" width="200" height="100">
+        <div class="row gx-1 row-cols-3 mb-3">
+          <div class="col-2"></div>
+          <div class="col-8 ">
+            <a href="../GamePage/GamePage.html" class="itemcontainer item1">
+              <div class="iteminternal">
+                <img src="./Images/csgo/CSGO2_main_image.jpg" alt="main codMW2 foto" width="200" height="100">
+              </div>
+            </a>
+          </div>
+          <div class="col-2"></div>
         </div>
-        <div class="col-sm-2"></div>
-      </div> -->
-      <div class="itemcontainer item1"><div class="iteminternal"><img src="./Images/csgo/CSGO2_main_image.jpg" alt="main codMW2 foto" width="200" height="100"></div></div>
-      <div class="itemcontainer item2"><div class="iteminternal"><img src="./Images/codMW2/codMW2_main_foto.jpg" alt="main codMW2 foto" width="200" height="100"></div></div>
-      <div class="itemcontainer item3"><div class="iteminternal"><img src="./Images/RL/RL_main_foto.jpg" alt="main RL foto" width="200" height="100"></div></div>
-      <div class="itemcontainer item4"><div class="iteminternal"><img src="./Images/GTA_VI/gta6.jpg" alt="main GTA_VI foto" width="200" height="100"></div></div>
-      <div class="itemcontainer item5"><div class="iteminternal"><img src="./Images/codBO5/codBO5.jpg" alt="main codBO5 foto" width="200" height="100"></div></div>
+        <div class="row gx-1 row-cols-3 mb-3">
+          <div class="col-2"></div>
+          <div class="col-8 ">
+            <div class="itemcontainer item2">
+              <div class="iteminternal">
+                <img src="./Images/codMW2/codMW2_main_foto.jpg" alt="main codMW2 foto" width="200" height="100">
+              </div>
+            </div>
+          </div>
+          <div class="col-2"></div>
+        </div>
+        <div class="row gx-1 row-cols-3 mb-3">
+          <div class="col-2"></div>
+          <div class="col-8">
+            <div class="itemcontainer item3">
+              <div class="iteminternal">
+                <img src="./Images/RL/RL_main_foto.jpg" alt="main RL foto" width="200" height="100">
+              </div>
+            </div>
+          </div>
+          <div class="col-3"></div>
+        </div>
+        <div class="row gx-1 row-cols-3 mb-3">
+          <div class="col-2"></div>
+          <div class="col-8 ">
+            <div class="itemcontainer item4">
+              <div class="iteminternal">
+                <img src="./Images/GTA_VI/gta6.jpg" alt="main GTA_VI foto" width="200" height="100">
+              </div>
+            </div>
+          </div>
+          <div class="col-2"></div>
+        </div>
+        <div class="row gx-1 row-cols-3 mb-3">
+          <div class="col-2"></div>
+          <div class="col-8 ">
+            <div class="itemcontainer item5">
+              <div class="iteminternal">
+                <img src="./Images/codBO5/codBO5.jpg" alt="main codBO5 foto" width="200" height="100">
+              </div>
+            </div>
+          </div>
+          <div class="col-2"></div>
+        </div>
     </div>
 </body>
 </html>
