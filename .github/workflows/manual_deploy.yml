@@ -30,7 +30,7 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_WEBAPP_NAME: DampAzure  # set this to the name of your Azure Web App
+  AZURE_WEBAPP_NAME: DampAzureTest  # set this to the name of your Azure Web App
 
 permissions:
   contents: read
