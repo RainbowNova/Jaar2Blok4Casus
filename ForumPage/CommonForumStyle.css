@@ -178,6 +178,25 @@ header {
     color: white;
 }
 
+.btn-add {
+    width: 6em;
+    font-size: 1.5em;
+    border: none;
+    background-color: #2962ff;
+    color: white;
+    cursor: pointer;
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+    border-radius: 0.2em;
+    outline: none;
+    transition: all 100ms ease-in;
+  }
+  
+  .btn-add:active,
+  .btn-add:hover {
+    background-color: var(--clr-primary-hover);
+  }
+
 .login-register {
     font-size: .9em;
     color: black;
