@@ -63,9 +63,24 @@ for (let i = 0; i < snakeTailImages.length; i++) {
 // Functions
 function update() {
   var context = board.getContext("2d");
+
+  // Moving snake body segments
+  var previousSegmentX = snakeX;
+  var previousSegmentY = snakeY;
+      
+
+  for (let i = 0; i < snakeBody.length; i++) {
+    var tempX = snakeBody[i][0];
+    var tempY = snakeBody[i][1];
+    snakeBody[i][0] = previousSegmentX;
+    snakeBody[i][1] = previousSegmentY;
+    previousSegmentX = tempX;
+    previousSegmentY = tempY;
+  }
+
   snakeX += velocityX * blockSize;
   snakeY += velocityY * blockSize; 
-    
+
   if (snakeX < 0 || snakeX >= cols * blockSize || snakeY < 0 || snakeY >= rows * blockSize) {
       gameOver= true;
     }
@@ -82,7 +97,7 @@ function update() {
       context.fillStyle = "black";
       context.font = "30px Arial";
       context.textAlign = "center";
-      context.fillText("Game Over!", board.width / 2, board.height);
+      context.fillText("Game Over!", board.width / 2, board.height / 2);
       return;
     }
 
@@ -92,19 +107,6 @@ function update() {
       keepPoints();
     }
 
-    // Moving snake body segments
-    var previousSegmentX = snakeX;
-    var previousSegmentY = snakeY;
-
-    for (let i = 0; i < snakeBody.length; i++) {
-      var tempX = snakeBody[i][0];
-      var tempY = snakeBody[i][1];
-      snakeBody[i][0] = previousSegmentX;
-      snakeBody[i][1] = previousSegmentY;
-      previousSegmentX = tempX;
-      previousSegmentY = tempY;
-    }
-    
   drawBackground();
   drawPlayerAndFood();
 }
@@ -130,10 +132,11 @@ function drawPlayerAndFood() {
 
   context.drawImage(backgroundImage, 0, 0, board.width, board.height);
 
-  context.drawImage(snakeHeadImage, snakeX, snakeY, blockSize, blockSize);
+  context.fillStyle = "#000c40";
+  context.fillRect(snakeX, snakeY, blockSize, blockSize);
 
   for (let i = 0; i < snakeBody.length; i++) {
-    context.drawImage(snakeTailImages[i % (snakeTailImages.length)],snakeBody[i][0], snakeBody[i][1], blockSize, blockSize);
+    context.fillRect(snakeBody[i][0], snakeBody[i][1], blockSize, blockSize);
   
   }
 

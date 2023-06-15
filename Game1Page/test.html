@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Food Image Test</title>
+  <style>
+    canvas {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="board"></canvas>
+
+  <script>
+    // Variables
+    var board = document.getElementById("board");
+    var context = board.getContext("2d");
+    var foodImage = new Image();
+    var foodX = 50;
+    var foodY = 50;
+    var blockSize = 25;
+
+    // Load food image
+    foodImage.onload = function() {
+      drawFood();
+    };
+    foodImage.src = "resources/foodBanana.png";
+
+    // Function to draw the food image
+    function drawFood() {
+      context.clearRect(0, 0, board.width, board.height);
+      context.drawImage(foodImage, foodX, foodY, blockSize, blockSize);
+    }
+
+    // Initial draw
+    drawFood();
+  </script>
+</body>
+</html>
