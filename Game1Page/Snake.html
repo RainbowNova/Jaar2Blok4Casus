@@ -10,8 +10,16 @@
     <body>
         <h1>Way of the Snake</h1>
         <canvas id="board"></canvas>
-        <div id="scoreContainer">Points: <span id="points">0</span></div>
-        <div id="gameOverMessage"></div>
+        <div id="scoreContainer">Points: 
+            <span id="points">0</span>
+        </div>
+        <div id="levelContainer" class="level-container">
+            <div id="level" class="level-text"></div>
+            <div id="levelBarContainer" class="level-bar-container">
+                <div id="levelBar" class="level-bar"></div>
+            </div>
+        </div>
+        <div id="gameOverMessage" class="game-over-message">Eat the fruit! Use arrows to play</div>
         <button id="replayButton">Replay</button>
     </body>
 </html>
