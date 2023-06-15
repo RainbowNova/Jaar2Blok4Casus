@@ -35,3 +35,61 @@ function AddTopic(){
     `;
     DivContainer.appendChild(newDiv);
 }
+
+function postComment() {
+    const commentText = document.getElementById("commentArea").value;
+    if (commentText.trim() === "") {
+      alert("Please enter a comment.");
+      return;
+    }
+
+    const comment = createCommentElement(commentText);
+    commentsContainer.appendChild(comment);
+    document.getElementById("commentArea").value = "";
+}
+
+function createCommentElement(commentText) {
+    const commentElement = document.createElement("div");
+    commentElement.classList.add("comment", "card", "mt-3");
+
+    const commentBody = document.createElement("div");
+    commentBody.classList.add("card-body", "d-flex", "flex-start", "align-items-center");
+
+    const profileImage = document.createElement("img");
+    profileImage.classList.add("square", "rounded", "p-10", "shadow-1-strong", "me-3");
+    profileImage.src = "https://ionicframework.com/docs/img/demos/avatar.svg";
+    profileImage.alt = "avatar";
+    profileImage.width = "60";
+    profileImage.height = "60";
+
+    const commentDetails = document.createElement("div");
+
+    const username = document.createElement("h6");
+    username.classList.add("fw-bold", "text-primary", "mb-1");
+    username.textContent = "Username";
+
+    const postDate = document.createElement("p");
+    postDate.classList.add("text-muted", "small", "mb-0");
+    postDate.textContent = getCurrentDate(); // Replace with actual post date
+
+    const commentContent = document.createElement("p");
+    commentContent.classList.add("mt-3", "mb-4", "px-3");
+    commentContent.textContent = commentText;
+
+    commentDetails.appendChild(username);
+    commentDetails.appendChild(postDate);
+
+    commentBody.appendChild(profileImage);
+    commentBody.appendChild(commentDetails);
+
+    commentElement.appendChild(commentBody);
+    commentElement.appendChild(commentContent);
+
+    return commentElement;
+}
+ 
+function getCurrentDate() {
+    const currentDate = new Date();
+    const options = { year: "numeric", month: "long", day: "numeric", hour: "numeric", minute: "numeric" };
+    return currentDate.toLocaleDateString(undefined, options);
+}
