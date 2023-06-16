@@ -1,0 +1,25 @@
+.category-title {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.topic-title {
+    font-size: 25px;
+}
+
+.topic-desc {
+    font-size: 20px;
+    font-style: italic;
+}
+
+#welcome-message { 
+    gap: 10px;
+    padding: 10px;
+
+    grid-column-start: 1;
+    grid-column-end: -1;
+}
+
+.category-table {
+    margin-bottom: 20px;
+}
