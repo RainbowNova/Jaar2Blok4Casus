@@ -2,10 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const wrapper = document.querySelector('.wrapper');
     const loginLink = document.querySelector('.login-link');
     const registerLink = document.querySelector('.register-link');
-   // const btnPopup = document.querySelector('.btnLogin-popup');
+    const btnPopup = document.querySelector('.btnLogin-popup');
     const iconClose = document.querySelector('.icon-close');
 
-    //eventlisteners
     registerLink.addEventListener('click', () => {
         wrapper.classList.add('active');
     });
@@ -14,10 +13,14 @@ document.addEventListener('DOMContentLoaded', () => {
         wrapper.classList.remove('active');
     });
 
-    iconClose.addEventListener('click', () => {
-        window.location.href = "../index.html";
+    btnPopup.addEventListener('click', () => {
+        wrapper.classList.add('active-popup');
     });
-    
+
+    iconClose.addEventListener('click', () => {
+        wrapper.classList.remove('active-popup');
+    });
+
     document.getElementById('login-form').addEventListener('submit', function(event) {
         event.preventDefault();
         var username = sanitizeInput(document.getElementById('email').value);
@@ -35,15 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
         var dateOfBirth = sanitizeInput(document.getElementById('register-Date of Birth').value);
         var hashedPassword = PasswordHasher(password);
 
-        //password hasher, this has to be moved to the backend later
         function PasswordHasher(Pword) {
             const g = 31;
-            var hash = 0;
-            for (var i = 0; i < Pword.length; i++) {
-                hash = g * hash + Pword.charCodeAt(Pword.indexOf(Pword.charAt(i)));}
+            let hash = 0;
+            for (const letter in Pword) {
+                hash = g * hash + charCodeAt(IndexOf(letter));}
             return hash;}
 
-        //log user data to console
         console.log('Register-Username:', username);
         console.log('Register-Email:', email);
         console.log('Register-Password:', hashedPassword);
