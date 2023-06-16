@@ -1,6 +1,39 @@
-<!--This page will be generated + filled in per topic that exists.
-Before this, the user was on Forum.html which contains all of the existing topics.
-This page is generated per topic within Forum.html and contains all the posts with this topic_id in the Firestore Database.
+<!DOCTYPE html>
+<html lang="en">
 
-The user should be able to see every post within this topic, including title, author and time of creation.
-The user should be able to add a post or to go to any of the existing posts.-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device.width, initial-scale=1.0">
+    <title>Trojan DevOps Forumpagina</title>
+    <script src="../components/nicer_header.js" type="text/javascript" defer></script>
+    <script src="../components/topic-table.js" type="text/javascript" defer></script>
+    <script src="../components/login.js" type="text/javascript" defer></script>
+    <script src="../common_script.js"></script>
+    <!--Replace with consistent version, eventually.-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../ForumPage/CommonForumStyle.css">
+</head>
+
+<header-component></header-component>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            Place the sub-menu here once the main header menu has been converted to Bootstrap code.
+            <br><a href="../ForumPage/Forum.html">Forum (categories page)</a>
+            <br><a href="../TopicPageTemplate/TopicTemplate.html">Topic page</a>
+            <br><a href="../PostPageTemplate/PostTemplate.html">Post page (template)</a>
+        </div>
+    <div class="row">
+        <h1>Hier lege rij / header "welkom op website"</h1>
+    </div>
+    <topic-table-component></topic-table-component>
+    <topic-table-component></topic-table-component>
+    <topic-table-component></topic-table-component>
+</div>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</html>
