@@ -68,7 +68,6 @@ header {
     transform: scaleX(1);
 }
 
-
 .navigation .btnLogin-popup {
     width: 130px;
     height: 40px;
@@ -114,10 +113,6 @@ th, td {
     font-size: 175px;
     text-align: center;
     line-height: 50%;
-}
-
-.col {
-    text-align: center;
 }
 
 .imagecover1 {
