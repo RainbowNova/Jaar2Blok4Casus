@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../HomePageStyle.css"> 
+    <link rel="stylesheet" href="GamePage.css">    
+    <script src="GamePage.js"></script>
+    <script src="../components/nicer_header.js"></script>
+    <title>GamePage</title>
+  </head>
+  <body>
+    <header-component></header-component>
+    <div class="container-fluid">
+        <div class="row gx-1 row-cols-3 mb-3">
+            <div class="col-2"></div>
+            <div class="col-8 navbarcustom">
+              <div class="row">
+                <div class="col-7 btn-group">
+                  <a href="../StorePage/StorePage.html" class="btn btn-outline-primary" role="button">Winkel</a>
+                  <button type="button" class="btn btn-secondary">Nieuw</button>
+                  <button type="button" class="btn btn-secondary">Categorien</button>
+                  <button type="button" class="btn btn-secondary">Winkelmand</button>
+                </div>
+                <div class="col-4 btn-group">
+                  <input class="form-control col-1" type="text" placeholder="Search">
+                  <button class="btn btn-secondary col" type="submit">Search</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-2"></div>
+        </div>
+
+        <div class="row row-cols-3 mb-3">
+          <div class="col-2"></div>
+          <div class="col-8">
+            <div class="row">
+
+              <div class="col-9">
+                <div class="square">
+                  <div class="top-left">
+                    <img src="./Images/csgo/CSGO2_main_image.jpg" class="image" alt="Large Image">
+                    <div class="static-text">This is static text</div>
+                  </div>
+                  <img src="./Images/codBO5/codBO5.jpg" class="top-right-image" alt="Small Image">
+                </div>
+              </div>
+              
+              <div class="col-3">
+                    <div class="square">
+                        requirements box
+                    </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-2"></div>
+        </div>
+        
+        <div class="row row-cols-3 mb-3">
+          <div class="col-2"></div>
+          <div class="col-6">
+            <div class="bar">
+                koop box
+            </div>
+          </div>
+          <div class="col-4"></div>
+        </div>
+    </div>
+</body>
+</html>
