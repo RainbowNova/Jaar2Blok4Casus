@@ -135,3 +135,16 @@ th, td {
     line-height: 50%;
 }
 
+#gamecolumn{
+    margin: 5px; 
+    padding: 5px; 
+    border-radius: 5px; 
+    background: rgba(48, 41, 144, 0.514);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#friend-container{
+    margin-left: 5%
+}
