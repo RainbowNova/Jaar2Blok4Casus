@@ -148,3 +148,19 @@ th, td {
 #friend-container{
     margin-left: 5%
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+
+
+::-webkit-scrollbar-thumb {
+background-color: rgba(48, 41, 144, 0.514);
+border-radius: 5px;
+}
+
+
+::-webkit-scrollbar-track {
+background-color: transparent;
+}
+
