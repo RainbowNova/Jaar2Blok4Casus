@@ -110,13 +110,29 @@ th, td {
 }
 
 .icon {
-    font-size: 175px;
+    font-size: 300px;
     text-align: center;
     line-height: 50%;
 }
 
-.imagecover1 {
-    display: block;
-    margin: 0 a;
-    width: 250px;
+
+.gameImage{
+    width: 130px;
+    border-style: solid;
+    height: 100px;
 }
+
+#Games-table {
+    overflow: scroll;
+}
+
+#Friends-table {
+    overflow: scroll;
+}
+
+.smallIcon {
+    font-size: 40px;
+    line-height: 50%;
+}
+
+

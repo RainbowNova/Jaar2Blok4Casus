@@ -1,3 +1,4 @@
+/*
 .itemcontainer.item1 { grid-area: game1; }
 .itemcontainer.item2 { grid-area: game2; }
 .itemcontainer.item3 { grid-area: game3; }
@@ -70,23 +71,20 @@
   transform: scaleX(1);
 }
 
-.navbarcustom {
-    position: fixed;
-    height: 70px;
-    top: 0;
-    left: 0;
-    width: 50%;
-    padding: 20px 100px;
-    margin-left: 25%;
-    margin-top: 125px;
-    background-color: rgba(48, 41, 144, 0.514);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 99;
-    backdrop-filter: blur(40px);
-}
 
 .container-fluid{
   background: rgba(48, 41, 144, 0.514);
+}
+*/
+
+
+.navbarcustom {
+  background-color: rgba(48, 41, 144, 0.514);
+  backdrop-filter: blur(40px);
+  padding:1%;
+  
+}
+
+.custombtn {
+  vertical-align:middle;
 }
