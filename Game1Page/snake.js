@@ -49,17 +49,22 @@ for (let i = 0; i < snakeTailImages.length; i++) {
 
 // Start game
 window.onload = function() {
-  document.getElementById("replayButton").addEventListener("click", replayGame); //replay button
+  
   
   board = document.getElementById("board");
   board.height = rows * blockSize;
   board.width = cols * blockSize;
   context = board.getContext("2d"); 
 
+  var replayButton;
+
   placeFood();
   document.addEventListener("keyup", changeDirection);
   gameLoopInterval = setInterval(update, 1000/10);
   preloadImages();
+
+  replayButton = document.getElementById("replayButton");
+  replayButton.addEventListener("click", replayGame); 
 }
 
 //Functions
@@ -100,6 +105,7 @@ function update() {
       context.font = "30px Arial";
       context.textAlign = "center";
       context.fillText("Game Over!", board.width / 2, board.height / 2);
+      showReplayButton();
       return;
     }
 
@@ -214,6 +220,7 @@ function replayGame() {
   snakeBody = [];
   placeFood();
   clearInterval(gameLoopInterval);
+  hideReplayButton();
 
   gameLoopInterval = setInterval(update, 1000/10)
 }
@@ -245,7 +252,7 @@ function preloadImages() {
 
   var loadedImages = 0;
   for (let i = 0; i < images.length; i++) {
-    image.onload = function() {
+    images[i].onload = function() {
       loadedImages++;
 
       if (loadedImages === foodImages.length) {
@@ -254,4 +261,12 @@ function preloadImages() {
       }
     };
   }
+}
+
+function showReplayButton() {
+  replayButton.style.visibility = "visible";
+}
+
+function hideReplayButton() {
+  replayButton.style.visibility = "hidden"
 }
