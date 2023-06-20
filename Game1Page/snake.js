@@ -16,7 +16,7 @@ var snakeY= blockSize * 5;
 var velocityX= 0;
 var velocityY= 0;
 
-var snakeBody= [];
+var snakeBody = [];
 
 // Food
 var foodX;
@@ -134,20 +134,15 @@ function drawBackground() {
 activeFoodImage = foodImages[Math.floor(Math.random() * foodImages.length)];
 
 function drawPlayerAndFood() {
-  var foodImageIndex = Math.floor(Math.random() * foodImages.length);
-  var foodImage = foodImages[foodImageIndex];
-
   var context = board.getContext("2d");
   context.clearRect(0, 0, board.width, board.height);
 
   context.drawImage(backgroundImage, 0, 0, board.width, board.height);
 
-  context.fillStyle = "#000c40";
-  context.fillRect(snakeX, snakeY, blockSize, blockSize);
+  context.drawImage(snakeHeadImage, snakeX, snakeY, blockSize, blockSize);
 
   for (let i = 0; i < snakeBody.length; i++) {
-    context.fillRect(snakeBody[i][0], snakeBody[i][1], blockSize, blockSize);
-  
+    context.drawImage(snakeTailImages[i % snakeTailImages.length], snakeBody[i][0], snakeBody[i][1], blockSize, blockSize);
   }
 
   var foodImage = new Image();
