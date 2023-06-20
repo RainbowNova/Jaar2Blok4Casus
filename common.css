@@ -29,7 +29,7 @@ header {
     justify-content: space-between;
     align-items: center;
     z-index: 99;
-    backdrop-filter: blur(40px);
+
 }
 
 .logo {
@@ -38,6 +38,13 @@ header {
     user-select: none;
 }
 
+.navbar-brand.logo{
+    color: white;
+}
+
+.bg-custom{
+    background-color: rgba(48, 41, 144, 0.514);
+}
 .navigation a {
     position: relative;
     font-size: 1.0em;
@@ -263,3 +270,4 @@ header {
 .login-register p a:hover{
     text-decoration: underline;
 }
+

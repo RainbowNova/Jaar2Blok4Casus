@@ -31,6 +31,7 @@ header {
     align-items: center;
     z-index: 99;
     backdrop-filter: blur(40px);
+
 }
 
 .logo {
@@ -98,8 +99,7 @@ th, td {
     padding-right: 30px;
 }
 
-.btn {
-    padding: 10px 10px;
+.btn { 
     margin: 4px 2px;
     background: rgba(48, 41, 144, 0.514);
     border: none;
