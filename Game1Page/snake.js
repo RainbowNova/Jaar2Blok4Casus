@@ -21,6 +21,7 @@ var snakeBody= [];
 // Food
 var foodX;
 var foodY;
+var activeFoodImage;
 
 // Points
 var points = 0;
@@ -29,19 +30,6 @@ var level = 1;
 // Game over rules
 var gameOver = false; 
 var gameLoopInterval = null;
-
-window.onload = function() {
-  document.getElementById("replayButton").addEventListener("click", replayGame); //replay button
-  
-  board = document.getElementById("board");
-  board.height = rows * blockSize;
-  board.width = cols * blockSize;
-  context = board.getContext("2d"); 
-
-  placeFood();
-  document.addEventListener("keyup", changeDirection);
-  gameLoopInterval = setInterval(update, 1000/10); 
-}
 
 var foodImages = [
   "resources/foodPeach.png", 
@@ -53,14 +41,28 @@ var foodImages = [
 var snakeHeadImage = new Image();
 snakeHeadImage.src = "resources/snakeHead.png";
 
-// Array for image snake tail
 var snakeTailImages = [new Image(), new Image()];
 // Load image for snake tail
 for (let i = 0; i < snakeTailImages.length; i++) {
   snakeTailImages[i].src = "resources/snakeTail.png";
 }
 
-// Functions
+// Start game
+window.onload = function() {
+  document.getElementById("replayButton").addEventListener("click", replayGame); //replay button
+  
+  board = document.getElementById("board");
+  board.height = rows * blockSize;
+  board.width = cols * blockSize;
+  context = board.getContext("2d"); 
+
+  placeFood();
+  document.addEventListener("keyup", changeDirection);
+  gameLoopInterval = setInterval(update, 1000/10);
+  preloadImages();
+}
+
+//Functions
 function update() {
   var context = board.getContext("2d");
 
@@ -126,8 +128,10 @@ function drawBackground() {
 activeFoodImage = foodImages[Math.floor(Math.random() * foodImages.length)];
 
 function drawPlayerAndFood() {
+  var foodImageIndex = Math.floor(Math.random() * foodImages.length);
+  var foodImage = foodImages[foodImageIndex];
+
   var context = board.getContext("2d");
-  console.log("drawing player and food ..")
   context.clearRect(0, 0, board.width, board.height);
 
   context.drawImage(backgroundImage, 0, 0, board.width, board.height);
@@ -142,18 +146,16 @@ function drawPlayerAndFood() {
 
   var foodImage = new Image();
   foodImage.src = activeFoodImage;
-  
-  context.drawImage(foodImage, foodX, foodY, blockSize, blockSize);
+  foodImage.onload = function() {
+    context.drawImage(foodImage, foodX, foodY, blockSize, blockSize);
+  };
+}
 
-  if (!activeFoodImage) {
+  function placeFood() {
+    foodX= Math.floor(Math.random() * cols) * blockSize;
+    foodY= Math.floor(Math.random() * rows) * blockSize;
     activeFoodImage = foodImages[Math.floor(Math.random() * foodImages.length)];
   }
-}
-
-function placeFood() {
-  foodX= Math.floor(Math.random() * cols) * blockSize;
-  foodY= Math.floor(Math.random() * rows) * blockSize;
-}
 
 function changeDirection(e) {
   // Function for moving snake
@@ -226,4 +228,30 @@ function keepPoints() {
   
   updateLevel();
   localStorage.setItem("points", points);
+}
+
+function preloadImages() {
+  var images = [backgroundImage, snakeHeadImage];
+
+  for (let i = 0; i < snakeTailImages.length; i++) {
+    images.push(snakeTailImages[i]);
+  }
+
+  for (let i = 0; i < foodImages.length; i++) {
+    var img = new Image();
+    img.src = foodImages[i];
+    images.push(img);
+  }
+
+  var loadedImages = 0;
+  for (let i = 0; i < images.length; i++) {
+    image.onload = function() {
+      loadedImages++;
+
+      if (loadedImages === foodImages.length) {
+        // Start the game after all images are loaded
+        update();
+      }
+    };
+  }
 }
