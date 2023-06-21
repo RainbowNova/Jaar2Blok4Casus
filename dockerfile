@@ -1,6 +1,7 @@
 # Use the official Nginx base image
 FROM nginx
 
+# Install pip packages first. Run script later in the file!!!!
 
 # Copy the HTML files to the Nginx document root directory
 COPY . /usr/share/nginx/html
