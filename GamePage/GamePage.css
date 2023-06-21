@@ -27,7 +27,7 @@
   }
   
   .image {
-    width: 400px; /* Adjust the width of the top left image as desired */
+    width: 480px; /* Adjust the width of the top left image as desired */
     height: auto;
     /* Additional styles for the top left image */
   }
@@ -41,7 +41,11 @@
     position: absolute;
     top: 0;
     right: 0;
-    height: auto;
-    width: 300px;
+    height: 100px;
+    width: 456px;
     /* Additional styles for the top-right image */
+  }
+  .Koop-button {
+    background-color: green; /* Set your desired color */
+    color: #FFFFFF; /* Set the text color */
   }
