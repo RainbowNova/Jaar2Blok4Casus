@@ -71,53 +71,50 @@ window.onload = function() {
 function update() {
   var context = board.getContext("2d");
 
-  // Moving snake body segments
-  var previousSegmentX = snakeX;
-  var previousSegmentY = snakeY;
-      
+  var newSnakeX = snakeX + velocityX * blockSize;
+  var newSnakeY = snakeY + velocityY * blockSize;
 
-  for (let i = 0; i < snakeBody.length; i++) {
-    var tempX = snakeBody[i][0];
-    var tempY = snakeBody[i][1];
-    snakeBody[i][0] = previousSegmentX;
-    snakeBody[i][1] = previousSegmentY;
-    previousSegmentX = tempX;
-    previousSegmentY = tempY;
+  if (newSnakeX < 0 || newSnakeX >= cols * blockSize || newSnakeY < 0 || newSnakeY >= rows * blockSize) {
+    gameOver = true;
   }
 
-  snakeX += velocityX * blockSize;
-  snakeY += velocityY * blockSize; 
+  // Update snake body segments
+  snakeBody.unshift([snakeX, snakeY]); // Add the new snake head position to the front
+  if (snakeBody.length > points + 1) {
+    snakeBody.pop(); // Remove the last segment if the snake hasn't eaten food
+  }
 
-  if (snakeX < 0 || snakeX >= cols * blockSize || snakeY < 0 || snakeY >= rows * blockSize) {
-      gameOver= true;
-    }
-
-  for (let i = 0; i < snakeBody.length; i++) {
-    if (snakeX === snakeBody[i][0] && snakeY === snakeBody[i][1]) {
+  // Check for collisions with the snake's body
+  for (let i = 1; i < snakeBody.length; i++) {
+    if (newSnakeX === snakeBody[i][0] && newSnakeY === snakeBody[i][1]) {
       gameOver = true;
       break;
     }
   }
 
-    if (gameOver) {
-      clearInterval(gameLoopInterval);
-      context.fillStyle = "black";
-      context.font = "30px Arial";
-      context.textAlign = "center";
-      context.fillText("Game Over!", board.width / 2, board.height / 2);
-      showReplayButton();
-      return;
-    }
+  if (gameOver) {
+    clearInterval(gameLoopInterval);
+    context.fillStyle = "black";
+    context.font = "30px Arial";
+    context.textAlign = "center";
+    context.fillText("Game Over!", board.width / 2, board.height / 2);
+    showReplayButton();
+    return;
+  }
 
-    if (snakeX === foodX && snakeY === foodY) {
-      snakeBody.push([foodX, foodY]);
-      placeFood();
-      keepPoints();
-    }
+  if (snakeX === foodX && snakeY === foodY) {
+    snakeBody.push([snakeX, snakeY]);
+    placeFood();
+    keepPoints();
+  } else {
+    snakeX = newSnakeX;
+    snakeY = newSnakeY;
+  }
 
   drawBackground();
   drawPlayerAndFood();
 }
+
 
 function drawBackground() {
   var context = board.getContext("2d");
@@ -139,11 +136,15 @@ function drawPlayerAndFood() {
 
   context.drawImage(backgroundImage, 0, 0, board.width, board.height);
 
-  context.drawImage(snakeHeadImage, snakeX, snakeY, blockSize, blockSize);
-
-  for (let i = 0; i < snakeBody.length; i++) {
-    context.drawImage(snakeTailImages[i % snakeTailImages.length], snakeBody[i][0], snakeBody[i][1], blockSize, blockSize);
+  for (let i = 0; i < snakeBody.length - 1; i++) {
+    var tailAngle = getAngle(snakeBody[i][0] - snakeBody[i + 1][0], snakeBody[i][1] - snakeBody[i + 1][1]);
+    drawRotatedImage(snakeTailImages[i % snakeTailImages.length], snakeBody[i][0], snakeBody[i][1], blockSize, blockSize, tailAngle);
+    //context.drawImage(snakeTailImages[i % snakeTailImages.length], snakeBody[i][0], snakeBody[i][1], blockSize, blockSize);
   }
+
+  var angle = getAngle(velocityX, velocityY);
+  drawRotatedImage(snakeHeadImage, snakeX, snakeY, blockSize, blockSize, angle);
+  //context.drawImage(snakeHeadImage, snakeX, snakeY, blockSize, blockSize);
 
   var foodImage = new Image();
   foodImage.src = activeFoodImage;
@@ -152,11 +153,11 @@ function drawPlayerAndFood() {
   };
 }
 
-  function placeFood() {
-    foodX= Math.floor(Math.random() * cols) * blockSize;
-    foodY= Math.floor(Math.random() * rows) * blockSize;
-    activeFoodImage = foodImages[Math.floor(Math.random() * foodImages.length)];
-  }
+function placeFood() {
+  foodX= Math.floor(Math.random() * cols) * blockSize;
+  foodY= Math.floor(Math.random() * rows) * blockSize;
+  activeFoodImage = foodImages[Math.floor(Math.random() * foodImages.length)];
+}
 
 function changeDirection(e) {
   // Function for moving snake
@@ -264,4 +265,19 @@ function showReplayButton() {
 
 function hideReplayButton() {
   replayButton.style.visibility = "hidden"
+}
+
+function getAngle(dx, dy) {
+  var angle = Math.atan2(dy, dx);
+  angle += Math.PI / 2;
+  return angle;
+}
+
+function drawRotatedImage(image, x, y, width, height, angle) {
+  var context = board.getContext("2d");
+  context.save();
+  context.translate(x + width / 2, y + height / 2);
+  context.rotate(angle);
+  context.drawImage(image, -width / 2, -height / 2, width, height);
+  context.restore();
 }
