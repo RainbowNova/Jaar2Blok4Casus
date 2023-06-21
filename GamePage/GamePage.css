@@ -1,0 +1,47 @@
+.navbarcustom {
+    position: relative;
+    background-color: rgba(48, 41, 144, 0.514);
+    backdrop-filter: blur(40px);
+    padding:1%;
+    
+  }
+  .square {
+    position: relative;
+    width: 100%; /* Adjust the width as desired */
+    height: 500px; /* Adjust the height as desired */
+    background-color: rgba(48, 41, 144, 0.514); /* Change the background color as desired */
+    /* Additional styles for the square container */
+  }
+
+  .bar {
+    position: relative;
+    width: 100%; /* Adjust the width as desired */
+    height: 100px; /* Adjust the height as desired */
+    background-color: rgba(48, 41, 144, 0.514); /* Change the background color as desired */
+    /* Additional styles for the square container */
+  }
+  
+  .top-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .image {
+    width: 400px; /* Adjust the width of the top left image as desired */
+    height: auto;
+    /* Additional styles for the top left image */
+  }
+  
+  .static-text {
+    margin-left: 10px; /* Adjust the spacing between the image and text as desired */
+    /* Additional styles for the static text */
+  }
+  
+  .top-right-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: auto;
+    width: 300px;
+    /* Additional styles for the top-right image */
+  }

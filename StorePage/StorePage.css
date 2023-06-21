@@ -1,3 +1,4 @@
+/*
 .itemcontainer.item1 { grid-area: game1; }
 .itemcontainer.item2 { grid-area: game2; }
 .itemcontainer.item3 { grid-area: game3; }
@@ -16,21 +17,26 @@
   gap: 10px;
   background-color: rgba(48, 41, 144, 0.514);
   margin-left: 0%;
+  margin-top: 25%;
+  margin-bottom: 25%;
   padding: 10px;
 }
 
 .iteminternal{
   padding-left: 10px;
+
+
 }
 
 .itemcontainer {
   text-align: center;
   background-color: rgba(255, 255, 255, 0.8);
   padding: 20px 0;
-  
-  text-align: left;
 
-  width: 1000px;
+  text-align: left;
+  margin-left: 25%;
+  margin-right: 25%;
+  width: 50%;
   min-width: auto;
   font-size: 30px;
   height: 125px;
@@ -65,19 +71,22 @@
   transform: scaleX(1);
 }
 
-navbar {
-    position: fixed;
-    height: 70px;
-    top: 0;
-    left: 0;
-    width: 50%;
-    padding: 20px 100px;
-    margin-left: 25%;
-    margin-top: 125px;
-    background-color: rgba(48, 41, 144, 0.514);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 99;
-    backdrop-filter: blur(40px);
+
+.container-fluid{
+  background: rgba(48, 41, 144, 0.514);
+}
+*/
+
+
+.navbarcustom {
+  background-color: rgba(48, 41, 144, 0.514);
+  backdrop-filter: blur(40px);
+  padding:1%;
+  margin-top: 5%;
+
+  
+}
+
+.custombtn {
+  vertical-align:middle;
 }

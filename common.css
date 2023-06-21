@@ -15,7 +15,6 @@ body {
     background: rgba(48, 41, 144, 0.514);
     background-size: cover;
     background-repeat: no-repeat;
-
 }
 
 header {
@@ -25,12 +24,12 @@ header {
     left: 0;
     width: 100%;
     padding: 20px 100px;
-    background: rgba(48, 41, 144, 0.514);
+
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 99;
-    backdrop-filter: blur(40px);
+
 }
 
 .logo {
@@ -39,6 +38,13 @@ header {
     user-select: none;
 }
 
+.navbar-brand.logo{
+    color: white;
+}
+
+.bg-custom{
+    background-color: rgba(48, 41, 144, 0.514);
+}
 .navigation a {
     position: relative;
     font-size: 1.0em;
@@ -57,7 +63,7 @@ header {
     margin-left: 40px;
     border-radius: 5px;
     left: -40px;
-    bottom: -6px;
+    bottom: 2px;
     transform-origin: left;
     transform: scaleX(0);
     transition: transform .4s;
@@ -264,3 +270,4 @@ header {
 .login-register p a:hover{
     text-decoration: underline;
 }
+
