@@ -7,18 +7,18 @@ services:
       dockerfile: dockerfile
     ports:
       - '80:80'
-    volumes:
-      - ./html:/usr/share/nginx/html
+    #volumes:
+    #  - ./html:/usr/share/nginx/html:ro
 
   db:
     image: mysql:latest
-    volumes:
-      - db-data:/var/lib/mysql
+    #volumes:
+    #  - ./html:/usr/share/nginx/html:ro
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: B2C6A
       MYSQL_USER: username
       MYSQL_PASSWORD: password
 
-volumes:
-  db-data:
+#volumes:
+#  db-data:
