@@ -1,52 +1,87 @@
-var pipex = 400;
-var pipex2 = 750;
-var pipey_1 = -150;
-var pipey_2 = -150;
-var pipey2_1 = 200;
-var pipey2_2 = 200;
+var windowWidth = window.innerWidth;
+var windowHeight = window.innerHeight;
 
-var birdx = 150;
-var birdy = 200;
+var pipex = windowWidth/3*2;
+var pipex2 = windowWidth/4*5;
+var pipey_1 = -(windowHeight/8*3);
+var pipey_2 = -(windowHeight/8*3);
+var pipey2_1 = windowHeight/2;
+var pipey2_2 = windowHeight/2;
+
+var birdx = windowWidth/4;
+var birdy = windowHeight/2;
 var fallingspeed = 2;
 
 var points = 0;
-var pointsx = 550;
+var pointsx = windowWidth/12*11;
 
-var cloudx = 200;
-var cloudx2 = 600;
+var cloudx = windowWidth/3;
+var cloudx2 = windowWidth;
 
-var sunx = 550;
+var sunx = windowWidth/12*11;
 var speed = -0.1;
 
 function setup() {
-  createCanvas(600,400);
+  resizeElements();
+  createCanvas(windowWidth,windowHeight);
+}
+
+function windowResized() {
+  resizeElements();
+  resizeCanvas(windowWidth, windowHeight);
+}
+
+function resizeElements() {
+  windowWidth = window.innerWidth;
+  windowHeight = window.innerHeight;
+  var canvasRatio = windowWidth / 600; // Calculate the ratio based on the original canvas width
+  
+  // Resize the elements relative to the canvas ratio
+  pipex = 400 * canvasRatio;
+  pipex2 = 750 * canvasRatio;
+  pipey_1 = -150 * canvasRatio;
+  pipey_2 = -150 * canvasRatio;
+  pipey2_1 = 200 * canvasRatio;
+  pipey2_2 = 200 * canvasRatio;
+
+  birdx = 150 * canvasRatio;
+  birdy = 200 * canvasRatio;
+  fallingspeed = 2;
+
+  pointsx = 550 * canvasRatio;
+
+  cloudx = 200 * canvasRatio;
+  cloudx2 = 600 * canvasRatio;
+
+  sunx = 550 * canvasRatio;
+  speed = -0.1;
 }
 
 function draw () {
  //Background
   //Earth
     noStroke();
-    if (sunx < 300) {
-      r_Sky = map (sunx,300,0,58,64);
-      g_Sky = map (sunx,300,0,153,79);
-      b_Sky = map (sunx,300,0,68,36);
+    if (sunx < windowWidth/2) {
+      r_Sky = map (sunx,windowWidth/2,0,58,64);
+      g_Sky = map (sunx,windowWidth/2,0,153,79);
+      b_Sky = map (sunx,windowWidth/2,0,68,36);
       fill(r_Sky,g_Sky,b_Sky);
     }else{
       fill(58,153,68);
     }
-    rect(0,300,600,100);
+    rect(0,windowHeight/4*3,windowWidth,windowHeight/4);
   
   //Sky
     noStroke();
     if (sunx < 300) {
-      r_Sky = map (sunx,300,0,135,20);
-      g_Sky = map (sunx,300,0,206,24);
-      b_Sky = map (sunx,300,0,235,82);
+      r_Sky = map (sunx,windowWidth/2,0,135,20);
+      g_Sky = map (sunx,windowWidth/2,0,206,24);
+      b_Sky = map (sunx,windowWidth/2,0,235,82);
       fill(r_Sky,g_Sky,b_Sky);
     }else{
       fill(135,206,235);
     }
-    rect(0,0,600,300);
+    rect(0,0,windowWidth,windowHeight/4*3);
   
   //Sun
     stroke(0);
@@ -55,7 +90,7 @@ function draw () {
   }else{
   fill(249,215,28);      //Sun
   }
-    ellipse(sunx,50,75,75);
+    ellipse(sunx,windowHeight/8,windowHeight/16*3,windowHeight/16*3);
   
     sunx = sunx + speed;
   
@@ -68,9 +103,9 @@ function draw () {
   //Clouds
     noStroke();
     if (sunx < 300) {
-      r_Sky = map (sunx,300,0,255,70);
-      g_Sky = map (sunx,300,0,255,91);
-      b_Sky = map (sunx,300,0,255,112);
+      r_Sky = map (sunx,windowWidth/2,0,255,70);
+      g_Sky = map (sunx,windowWidth/2,0,255,91);
+      b_Sky = map (sunx,windowWidth/2,0,255,112);
       fill(r_Sky,g_Sky,b_Sky);
     }else{
       fill(255,255,255,200);
@@ -90,12 +125,12 @@ function draw () {
 
   cloudx = cloudx - 0.5;
   if (cloudx < -75) {
-    cloudx = 600;
+    cloudx = windowWidth;
   }
   
   cloudx2 = cloudx2 - 0.25;
   if (cloudx2 < -75) {
-    cloudx2 = 600;
+    cloudx2 = windowWidth;
   }
 
 
@@ -104,28 +139,28 @@ function draw () {
   //Body
   stroke(0);
   fill(252,214,71);
-  ellipse(150,birdy,50,45);
+  ellipse(windowWidth/12*3,birdy,windowWidth/12,windowHeight/80*9);
  
   //Eye
   stroke(0,100);
   fill(0,0,255);
-  ellipse(165,birdy-10,7,7);
+  ellipse(windowWidth/600*165,birdy-windowHeight/40,windowHeight/50,windowHeight/50);
   noStroke();
   fill(255,255,255);
-  ellipse(167,birdy-9,3,3);
+  ellipse(windowWidth/600*167,birdy-windowHeight/400*9,windowWidth/200,windowWidth/200);
  
   //Beak
   stroke(0);
   fill(255,0,0);
-  triangle(173,birdy-10,185,birdy,173,birdy+10);
+  triangle(windowWidth/600*173,birdy-windowHeight/40,windowWidth/600*185,birdy,windowWidth/600*173,birdy+windowHeight/40);
   strokeWeight(2);
-  line(175,birdy-1 ,183,birdy);
+  line(windowWidth/600*175,birdy-windowHeight/400 ,windowWidth/600*183,birdy);
  
   //Wing
   strokeWeight(1);
   stroke(0);
   fill(0,255,0);
-  triangle(120,birdy+15,165,birdy,150,birdy+20);
+  triangle(windowWidth/5,birdy+windowHeight/80*3,windowWidth/600*165,birdy,windowWidth/4,birdy+windowHeight/20);
   
   birdy = birdy + fallingspeed;
 
@@ -136,126 +171,126 @@ function draw () {
   //Pipe up
   stroke(0);
   fill(255,189,27);
-  rect(pipex,pipey_1,75,240);
-  rect(pipex2,pipey_2,75,240);
+  rect(pipex,pipey_1,windowWidth/8,windowHeight/10*6);
+  rect(pipex2,pipey_2,windowWidth/8,windowHeight/10*6);
   
 //Pipe down
   stroke(0);
   fill(255,189,27);
-  rect(pipex,pipey2_1,75,240);
-  rect(pipex2,pipey2_2,75,240);
+  rect(pipex,pipey2_1,windowWidth/8,windowHeight/10*6);
+  rect(pipex2,pipey2_2,windowWidth/8,windowHeight/10*6);
   
   pipex = pipex - 1;
   pipex2 = pipex2 - 1;
   
-  if (pipex <= -75) {
-    pipex = 600;
-  }else if (pipex2 <= -75) {
-    pipex2 = 600;
+  if (pipex <= -(windowWidth/8)) {
+    pipex = windowWidth;
+  }else if (pipex2 <= -(windowWidth/8)) {
+    pipex2 = windowWidth;
   }
   
-  if (pipex == 600) {
-    pipey_1 = random(-190,0);
-  }else if(pipex2 == 600) {
-    pipey_2 = random(-190,0);
+  if (pipex == windowWidth) {
+    pipey_1 = random(-(windowHeight/400*190),0);
+  }else if(pipex2 == windowWidth) {
+    pipey_2 = random(-(windowHeight/400*190),0);
   }
-    pipey2_1 = pipey_1 + 390;
-    pipey2_2 = pipey_2 + 390;
+    pipey2_1 = pipey_1 + windowHeight/40*39;
+    pipey2_2 = pipey_2 + windowHeight/40*39;
 
   
   
 //Points
   fill(241,255,28);
-  textSize(50);
-  if (pipex + 75 == birdx || pipex2 + 75 == birdx) {
+  textSize(windowHeight/8);
+  if (pipex + windowWidth/600*75 == birdx || pipex2 + windowWidth/600*75 == birdx) {
     points = points + 1;
-    text(points,pointsx,50);
+    text(points,pointsx,windowHeight/8);
   }else{
-  text(points,pointsx,50);
+  text(points,pointsx,windowHeight/8);
   }
   if (points == 50) {
     noLoop();
     background(random(155,255),random(100,255),random(0,155));
     fill(0,random(0,255),random(0,255));
-    text("CONGRATS",165,90);
-    textSize(30);
+    text("CONGRATS",windowWidth/600*165,windowHeight/4000*90);
+    textSize(windowHeight/40*3);
     fill(0,random(0,255),random(0,255));
-    text("YOU REACHED MAXIMUM POINTS",55,200);
+    text("YOU REACHED MAXIMUM POINTS",windowWidth/600*55,windowHeight/2);
     fill(0);
-    textSize(10);
-    text("PRESS SPACE TO PLAY AGAIN",230,220);
-    text("MADE BY: JEROEN GERAATS",450,390);
+    textSize(windowHeight/40);
+    text("PRESS SPACE TO PLAY AGAIN",windowWidth/600*230,windowHeight/400*220);
+    text("MADE BY: JEROEN GERAATS",windowWidth/600*450,windowHeight/400*390);
   }else if (points >= 100000000) {
-    pointsx = 325;
+    pointsx = windowWidth/600*325;
   }else if (points >= 10000000) {
-    pointsx = 353;
+    pointsx = windowWidth/600*353;
   }else if (points >= 1000000) {
-    pointsx = 381;
+    pointsx = windowWidth/600*381;
   }else if (points >= 100000) {
-    pointsx = 409;
+    pointsx = windowWidth/600*409;
   }else if (points >= 10000) {
-    pointsx = 438;
+    pointsx = windowWidth/600*438;
   }else if (points >= 1000) {
-    pointsx = 466;
+    pointsx = windowWidth/600*466;
   }else if (points >= 100) {
-    pointsx = 494;
+    pointsx = windowWidth/600*494;
   }else if (points >= 10) {
-    pointsx = 522;
+    pointsx = windowWidth/600*522;
   }
   
   
 //Gameover
   //Ground
-  if (birdy > height){
+  if (birdy > windowHeight){
       noLoop();
       fill(0,0,0);
-      textSize(20);
-      text("PRESS SPACE TO START",190,200);
-      textSize(8);
-      text("LEFT MOUSE CLICK TO FLY",250,210);
+      textSize(windowHeight/20);
+      text("PRESS SPACE TO START",windowWidth/600*190,windowHeight/2);
+      textSize(windowHeight/50);
+      text("LEFT MOUSE CLICK TO FLY",windowWidth/12*5,windowHeight/40*21);
   
   //Left Pipe Up
-  }else if(birdy <= (pipey_1 + 222.5) && ((birdx >= pipex-25 && birdx <= (pipex + 75)) || (birdx >= pipex && birdx <= (pipex + 75)))) {
-      noLoop();
-      fill(0,0,0);
-      textSize(20);
-      text("PRESS SPACE TO START",190,200);
-      textSize(8);
-      text("LEFT MOUSE CLICK TO FLY",250,210);
-  
+  }else if(birdy <= (pipey_1 + windowHeight/400*222.5) && ((birdx >= pipex-(windowWidth/600*25) && birdx <= (pipex + windowWidth/600*75)) || (birdx >= pipex && birdx <= (pipex + windowWidth/600*75)))) {
+    noLoop();
+    fill(0,0,0);
+    textSize(windowHeight/20);
+    text("PRESS SPACE TO START",windowWidth/600*190,windowHeight/2);
+    textSize(windowHeight/50);
+    text("LEFT MOUSE CLICK TO FLY",windowWidth/12*5,windowHeight/40*21);
+
   //Left Pipe Down
-  }else if(birdy >= (pipey2_1 - 22.5) && ((birdx >= pipex-25 && birdx <= (pipex + 75)) || (birdx >= pipex && birdx <= (pipex + 75)))) {
-      noLoop();
-      fill(0,0,0);
-      textSize(20);
-      text("PRESS SPACE TO START",190,200);
-      textSize(8);
-      text("LEFT MOUSE CLICK TO FLY",250,210);
-  
+  }else if(birdy >= (pipey2_1 - windowHeight/400*22.5) && ((birdx >= pipex-(windowWidth/600*25) && birdx <= (pipex + windowWidth/600*75)) || (birdx >= pipex && birdx <= (pipex + windowWidth/600*75)))) {
+    noLoop();
+    fill(0,0,0);
+    textSize(windowHeight/20);
+    text("PRESS SPACE TO START",windowWidth/600*190,windowHeight/2);
+    textSize(windowHeight/50);
+    text("LEFT MOUSE CLICK TO FLY",windowWidth/12*5,windowHeight/40*21);
+
   //Right Pipe Up
-  }else if(birdy <= (pipey_2 + 222.5) && ((birdx >= pipex2-25 && birdx <= (pipex2 + 75)) || (birdx >= pipex2 && birdx <= (pipex2 + 75)))) {
-      noLoop();
-      fill(0,0,0);
-      textSize(20);
-      text("PRESS SPACE TO START",190,200);
-      textSize(8);
-      text("LEFT MOUSE CLICK TO FLY",250,210);      
-  
+  }else if(birdy <= (pipey_2 + windowHeight/400*222.5) && ((birdx >= pipex2-(windowWidth/600*25) && birdx <= (pipex2 + windowWidth/600*75)) || (birdx >= pipex2 && birdx <= (pipex2 + windowWidth/600*75)))) {
+    noLoop();
+    fill(0,0,0);
+    textSize(windowHeight/20);
+    text("PRESS SPACE TO START",windowWidth/600*190,windowHeight/2);
+    textSize(windowHeight/50);
+    text("LEFT MOUSE CLICK TO FLY",windowWidth/12*5,windowHeight/40*21);
+
   //Right Pipe Down
-  }else if(birdy >= (pipey2_2 - 22.5) && ((birdx >= pipex2-25 && birdx <= (pipex2 + 75)) || (birdx >= pipex2 && birdx <= (pipex2 + 75)))) {
-      noLoop();
-      fill(0,0,0);
-      textSize(20);
-      text("PRESS SPACE TO START",190,200);
-      textSize(8);
-      text("LEFT MOUSE CLICK TO FLY",250,210);
+  }else if(birdy >= (pipey2_2 - windowHeight/400*22.5) && ((birdx >= pipex2-(windowWidth/600*25) && birdx <= (pipex2 + windowWidth/600*75)) || (birdx >= pipex2 && birdx <= (pipex2 + windowWidth/600*75)))) {
+    noLoop();
+    fill(0,0,0);
+    textSize(windowHeight/20);
+    text("PRESS SPACE TO START",windowWidth/600*190,windowHeight/2);
+    textSize(windowHeight/50);
+    text("LEFT MOUSE CLICK TO FLY",windowWidth/12*5,windowHeight/40*21);
   }
   
 //Background
   //Outline border
   stroke(0);
   noFill();
-  rect(0,0,600,400);
+  rect(0,0,windowWidth,windowHeight);
 }
   
 function mousePressed() {
@@ -263,13 +298,13 @@ function mousePressed() {
 }
 
 function keyPressed() {
-  birdy = 200;
-  pipex = 400;
-  pipex2 = 750;
-  cloudx = 200;
-  cloudx2 = 600;
+  birdy = windowHeight/2;
+  pipex = windowWidth/3*2;
+  pipex2 = windowWidth/4*5;
+  cloudx = windowWidth/2;
+  cloudx2 = windowWidth;
   points = 0;
-  pointsx = 550;
-  sunx = 550;
+  pointsx = windowWidth/12*11;
+  sunx = windowWidth/12*11;
   loop(); 
 }
