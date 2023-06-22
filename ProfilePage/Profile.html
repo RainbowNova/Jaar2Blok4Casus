@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device.width, initial-scale=1.0">
     <title>Website login/register page</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="ProfileStyle.css">
+    <link rel="stylesheet" href="../common.css">
     <script src="../components/nicer_header.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 </head>
 
 <body>
-
   <header-component></header-component>
   <div style="border-style: solid;">
     <table id="profile-table">
@@ -33,9 +33,8 @@
   </div>
 
   <div>
-
     <div>
-      <div class="container">
+      <div id="gamecontainer" class="container">
         <table id="Games-table">
           <div class="row" style="height: 100px;">
           </div>
@@ -48,111 +47,50 @@
           
           <div class="row">
             <div style="width: 30px;"></div>
-            <div class="col" style="margin: 5px; padding: 5px; background: rgba(48, 41, 144, 0.514);"> 
+            <div class="col" id="gamecolumn"> 
               <div style="text-align: center; height: 50px;">Grand Theft Auto 5</div>
               <img class="gameImage" src="https://seeklogo.com/images/G/grand-theft-auto-5-logo-54E30512F6-seeklogo.com.png" alt="game_afbeelding">
             </div>
-            <div class="col" style="margin: 5px; padding: 5px; background: rgba(48, 41, 144, 0.514);">
+            <div class="col" id="gamecolumn">
                   <div style="text-align: center; height: 50px;">Snake</div>
                   <img class="gameImage" src="../Game1Page/resources/imagecover1.jpg" alt="Snake Game Image" style="max-width: 100%;">
                   <a href="../Game1Page/Snake.html">Play</a>
             </div>
-            <div class="col" style="margin: 5px; padding: 5px; background: rgba(48, 41, 144, 0.514);">
+            <div class="col" id="gamecolumn">
               <div style="text-align: center; height: 50px;">Call of Duty: Modern Warfare 2</div>
               <img class="gameImage" src="https://image.api.playstation.com/vulcan/ap/rnd/202212/1917/OS18LBxAVpQ1iPeGWAqSnxem.png" alt="game_afbeelding">
             </div>
-            <div class="col" style="margin: 5px; padding: 5px; background: rgba(48, 41, 144, 0.514);">
+            <div class="col" id="gamecolumn">
               <div style="text-align: center; height: 50px;">Viva Piñata</div>
               <img class="gameImage" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTM6nuTmI7IjC_mS7uyDfkGgP-7NI-QDwE0ZA&usqp=CAU" alt="game_afbeelding">
-            </div>
+            </div>        
           </div>
         </table>
       </div>
     </div>
+    <div style="text-align: center;">
+      <button class="create-friend" style="margin: 5px; padding: 5px; background: rgba(48, 41, 144, 0.514);" onclick="CreateFriend()">Create Friend</button>
+    </div>
     
     <table id="Friends-table">
       <div class="row">
-          <div class="col" style="font-size: xx-large; text-align: center;">
-            <ins><b>___________________Friends___________________</b></ins>
-          </div>
-        </div>
-      <div class="container" style="overflow-y: auto; width: 750px; height: 400px;">
-        <div class="row" style="height: 40px;">
-        </div>
-        <div class="row">
-          <div style="width: 30px;"></div>
-          <div class="col" style="max-width: 250px; background: rgba(48, 41, 144, 0.514); margin: 5px; padding: 5px;">
-            <div class="smallIcon"><ion-icon name="person"></ion-icon></div>
-            <div style="text-align: center;">Lange Username</div>
-          </div>
-          <div class="col" style="max-width: 250px; background: rgba(48, 41, 144, 0.514); margin: 5px; padding: 5px;">
-            <div class="smallIcon"><ion-icon name="person"></ion-icon></div>
-            <div style="text-align: center;">Username</div>
-          </div> 
-          <div class="col" style="max-width: 250px; background: rgba(48, 41, 144, 0.514); margin: 5px; padding: 5px;">
-            <div class="smallIcon"><ion-icon name="person"></ion-icon></div>
-            <div style="text-align: center;">Username</div>
-          </div>
-        </div>
 
+        <div class="col" style="font-size: xx-large; text-align: center;">
+          <ins><b>___________________Friends___________________</b></ins>
 
-        <div class="row">
-          <div style="width: 30px;"></div>
-          <div class="col" style="max-width: 250px; background: rgba(48, 41, 144, 0.514); margin: 5px; padding: 5px;">
-            <div class="smallIcon"><ion-icon name="person"></ion-icon></div>
-            <div style="text-align: center;">Hele lange Username</div>
-          </div>
-          <div class="col" style="max-width: 250px; background: rgba(48, 41, 144, 0.514); margin: 5px; padding: 5px;">
-            <div class="smallIcon"><ion-icon name="person"></ion-icon></div>
-            <div style="text-align: center;">Username</div>
-          </div> 
-          <div class="col" style="max-width: 250px; background: rgba(48, 41, 144, 0.514); margin: 5px; padding: 5px;">
-            <div class="smallIcon"><ion-icon name="person"></ion-icon></div>
-            <div style="text-align: center;">Username</div>
-          </div>
         </div>
+      </div>
 
-        <div class="row">
-          <div style="width: 30px;"></div>
-          <div class="col" style="max-width: 250px; background: rgba(48, 41, 144, 0.514); margin: 5px; padding: 5px;">
-            <div class="smallIcon"><ion-icon name="person"></ion-icon></div>
-            <div style="text-align: center;">Langste hele lange username die vrij lang is</div>
-          </div>
-          <div class="col" style="max-width: 250px; background: rgba(48, 41, 144, 0.514); margin: 5px; padding: 5px;">
-            <div class="smallIcon"><ion-icon name="person"></ion-icon></div>
-            <div style="text-align: center;">Username</div>
-          </div> 
-          <div class="col" style="max-width: 250px; background: rgba(48, 41, 144, 0.514); margin: 5px; padding: 5px;">
-            <div class="smallIcon"><ion-icon name="person"></ion-icon></div>
-            <div style="text-align: center;">Username</div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div style="width: 30px;"></div>
-          <div class="col" style="max-width: 250px; background: rgba(48, 41, 144, 0.514); margin: 5px; padding: 5px;">
-            <div class="smallIcon"><ion-icon name="person"></ion-icon></div>
-            <div style="text-align: center;">Username</div>
-          </div>
-          <div class="col" style="max-width: 250px; background: rgba(48, 41, 144, 0.514); margin: 5px; padding: 5px;">
-            <div class="smallIcon"><ion-icon name="person"></ion-icon></div>
-            <div style="text-align: center;">Username</div>
-          </div> 
-          <div class="col" style="max-width: 250px; background: rgba(48, 41, 144, 0.514); margin: 5px; padding: 5px;">
-            <div class="smallIcon"><ion-icon name="person"></ion-icon></div>
-            <div style="text-align: center;">Username</div>
-          </div>
-        </div>
-
-        <div class="row" style="height: 100px;"></div>
+      <div id="friend-container"class="container" style="overflow-y: auto; width: 750px; height: 400px;">
       </div>
     </table>
+ 
   </div>
 
 
     <script src="script.js"></script>
 
-    <script src="script.js" defer></script>
+
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
