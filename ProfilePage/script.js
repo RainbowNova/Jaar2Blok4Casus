@@ -1,4 +1,5 @@
 
+
 function CreateFriend() {
 
     const DivContainer = document.getElementById("friend-container");
@@ -27,6 +28,7 @@ function CreateFriend() {
     UsersInFriendsList == 0;
 
 }
+
 
 
 

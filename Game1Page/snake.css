@@ -1,0 +1,87 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: "Courier New", 'Courier New', Courier, monospace;
+    text-align: center;
+  }
+  
+.game-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+.level-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+  
+.level-text {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+  
+.level-bar-container {
+    width: 300px;
+    height: 10px;
+    background-color: crimson;
+}
+  
+.level-bar {
+    height: 100%;
+    background: linear-gradient(to right,#7ffa7f , lime);
+    transition: width 0.3s ease-in-out;
+}
+  
+.gameInfo-container {
+    text-align: left;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+  
+.returnButton-container {
+    position: absolute;
+    top: 20px;
+    left: 50px;
+}
+  
+.returnButton {
+    background-color: darkgreen;
+    color: white;
+    border: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: solid;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.replayButton-container {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+}
+  
+#replayButton {
+    background-color: darkgreen;
+    color: white;
+    border: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: solid;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
