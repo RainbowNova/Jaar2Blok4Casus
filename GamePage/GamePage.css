@@ -27,7 +27,7 @@
   }
   
   .image {
-    width: 480px; /* Adjust the width of the top left image as desired */
+    width: 48%; /* Adjust the width of the top left image as desired */
     height: auto;
     /* Additional styles for the top left image */
   }
@@ -41,8 +41,8 @@
     position: absolute;
     top: 0;
     right: 0;
-    height: 100px;
-    width: 456px;
+    height: 20%;
+    width: 52%;
     /* Additional styles for the top-right image */
   }
   .Koop-button {
