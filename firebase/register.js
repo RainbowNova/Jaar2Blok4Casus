@@ -1,43 +1,35 @@
+import { initializeApp } from "firebase/app";
+import{
+    getFireStore, collection, onSnapShot,
+    query, addDoc, doc, where, orderBy, limit,
+    getDoc, updateDoc, getDocs, setDoc
+} from 'firebase/firestore';
 
+const firebaseConfig = {
+    apiKey: "AIzaSyCGi7d3hQFtXooGw_HosUqGrH0dBJYojYI",
+    authDomain: "damp-c7a9d.firebaseapp.com",
+    projectId: "damp-c7a9d",
+    storageBucket: "damp-c7a9d.appspot.com",
+    messagingSenderId: "1045743798558",
+    appId: "1:1045743798558:web:8ac8bd44114553396ee10f"
+  };
 
-//Register account into accounts table
+initializeApp(firebaseConfig);
 
-document.addEventListener('DOMContentLoaded', () => {
-    var registerFormDB = firebase.database().ref("accounts")
+const db = getFireStore();
 
-    document.getElementById("register-form").addEventListener("submit", submitForm);
+const colRef = collection(db, 'Users');
 
-    function submitForm(e) {
-        e.preventDefault();
+const registerUserForm = document.querySelector('.register_user');
+registerUserForm.addEventListener('sumbit', async (e) => {
+    e.preventDefault();
 
-        var username = getElementVal("register-username");
-        var email = getElementVal("register-email");
-        var location = getElementVal("register-Address");
-        var address = getElementVal("register-Address");
-        var birthday = getElementVal("register-Date of Birth");
-        var password = getElementVal("register-password");
-  
+    console.log('Form Submitted')
 
-        storeAccount(username, email, location, address, birthday, password);
-    }
-
-    function storeAccount(username, email, location, address, birthday, password) {
-        var newRegisterFormDB = registerFormDB.push();
-        newRegisterFormDB.set({
-            username: username,
-            email: email,
-            location: location,
-            address: address,
-            birthday: birthday,
-            password: password
-        });
-    }
-    
-
-
-    const getElementVal = (id) => {
-        return document.getElementById(id).value;
-    }
-
-});
-
+    addDoc(colRef, {
+        "Username": registerUserForm.username.value,
+    })
+    .then(() => {
+        registerUserForm.reset()
+    })
+})

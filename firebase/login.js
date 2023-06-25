@@ -1,12 +1,10 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyBlxNS6DfDzWIHeksRpE8brSO0odUQrbwM",
-    authDomain: "gameplatform-db.firebaseapp.com",
-    databaseURL: "https://gameplatform-db-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "gameplatform-db",
-    storageBucket: "gameplatform-db.appspot.com",
-    messagingSenderId: "545500280718",
-    appId: "1:545500280718:web:95e285f583b0157adf56df",
-    measurementId: "G-R2NMTXLKF5"
+  apiKey: "AIzaSyCGi7d3hQFtXooGw_HosUqGrH0dBJYojYI",
+  authDomain: "damp-c7a9d.firebaseapp.com",
+  projectId: "damp-c7a9d",
+  storageBucket: "damp-c7a9d.appspot.com",
+  messagingSenderId: "1045743798558",
+  appId: "1:1045743798558:web:8ac8bd44114553396ee10f"
 };
 
 
