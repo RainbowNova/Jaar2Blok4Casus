@@ -1,9 +1,34 @@
-document.addEventListener('DOMContentLoaded', async () => {
+const GameData = []
 
-    const jsonData = [];
+document.addEventListener('DOMContentLoaded', () => {
+    
+    const promise = GetGames();
+    promise.then((data) => 
+        data.forEach(game => {
+            GameData.push(game)
+        })
+    );
 
-    try {
-        await fetch('https://dampbackendapi.azurewebsites.net/api/Games', {
+    promise.then(() => {
+        GameData.forEach(game => {
+            const promise = GetDevelopersBygame(game)
+            promise.then((data) => 
+                game.developer = data
+            );
+        })
+    })
+
+    console.log(GameData)
+
+    promise.then(() => {
+        setTimeout(() => createGames(), 100);
+    })
+    
+});
+
+async function GetGames(){
+    try{
+        const response = await fetch('https://dampbackendapi.azurewebsites.net/api/Games', {
             method: 'GET',
             headers: {
             'accept': 'text/plain',
@@ -12,30 +37,59 @@ document.addEventListener('DOMContentLoaded', async () => {
             'Access-Control-Allow-Methods': 'GET',
             'Access-Control-Allow-Headers': 'Origin, Methods, Content-Type'
             }})
-            .then(response => response.json())
-            .then((data) => {
-                data.forEach(game => {
-                    jsonData.push(game);
-                })
-            })
-    }
+        if (!response.ok) { 
+            throw new Error(`HTTP error: ${response.status}`);
+        }
+
+        const data = await response.json();
+        return data
+        } 
     catch (error) {
-        console.error('Error:', error);
-        // Handle network errors or other exceptions here
+            console.error(`Could not get Games: ${error}`);
+        }
     }
-    
-    jsonData.forEach(game => {
+
+async function GetDevelopersBygame(game){
+    try{ 
+            const response = await fetch('https://dampbackendapi.azurewebsites.net/api/Developers/'+game.developerId, {
+                method: 'GET',
+                headers: {
+                'accept': 'text/plain',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET',
+                'Access-Control-Allow-Headers': 'Origin, Methods, Content-Type'
+                }})
+
+            if (!response.ok) { 
+                throw new Error(`HTTP error: ${response.status}`);
+            }
+
+            const data = await response.json();
+            return data
+    } catch (error) {
+        console.error(`Could not get Games: ${error}`);
+    }
+}
+
+async function createGames(){
+    GameData.forEach(game => {
+        console.log(game)
         document.getElementById('bodydiv').innerHTML+=`
         <div class="row gx-1 row-cols-3 mb-3">
-            <div class="col-2"></div>
-            <div class="col-8 ">
-            <a href="../GamePage/GamePage.html?id=${game.id}" class="itemcontainer item1">
-                <div class="iteminternal">
+        <div class="col-2"></div>
+            <a href="../GamePage/GamePage.html?id=${game.id}" class="row col-8 gamecontainer">
+            <div class="col-3 iteminternal">
                 <img src="./Images/csgo/CSGO2_main_image.jpg" alt="main codMW2 foto" width="200" height="100">
-                </div>
-            </a>
             </div>
-            <div class="col-2"></div>
-        </div>`
-    })
-});
+            <div class="row col-6">
+                <div class="row">${game.name}</div>
+                <div class="row">${game.description}</div>
+                <div class="row">${game.developer.name}</div>
+            </div>
+            <div class="col-2">discount</div>
+            <div class="col-1">${game.price}</div>
+            </a>
+        <div class="col-2"></div>
+        </div>`})
+    }
