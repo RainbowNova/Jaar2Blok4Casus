@@ -4,11 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="StorePage.css">    
-    <link rel="stylesheet" href="../common.css">  
+    <link rel="stylesheet" href="../HomePageStyle.css">  
     <script src="StorePage.js"></script>
     <script src="../components/nicer_header.js"></script>
 
@@ -16,17 +14,16 @@
   </head>
   <body>
     <header-component></header-component>
-
-      <div class="container-fluid">
+      <div id="bodydiv" class="container-fluid full-ht">
         <div class="row gx-1 row-cols-3 mb-3">
           <div class="col-2"></div>
           <div class="col-8 navbarcustom">
             <div class="row">
               <div class="col-7 btn-group">
-                <a href="../StorePage/StorePage.html" class="btn btn-outline-primary" role="button">Winkel</a>
+                <a href="../StorePage/StorePage.html" class="btn btn-primary d-flex justify-content-center align-items-center" role="button">Winkel</a>
                 <button type="button" class="btn btn-secondary">Nieuw</button>
                 <button type="button" class="btn btn-secondary">Categorien</button>
-                <button type="button" class="btn btn-secondary">Winkelmand</button>
+                <a href="/ShoppingCartPage/ShoppingCartPage.html" class="btn btn-primary d-flex justify-content-center align-items-center" role="button">Winkelmand</a>
               </div>
               <div class="col-4 btn-group">
                 <input class="form-control col-1" type="text" placeholder="Search">
@@ -36,66 +33,6 @@
           </div>
           <div class="col-2"></div>
         </div>
-
-        <div class="row gx-1 row-cols-3 mb-3">
-          <div class="col-2"></div>
-          <div class="col-8 ">
-            <a href="../GamePage/GamePage.html" class="itemcontainer item1">
-              <div class="iteminternal">
-                <img src="./Images/csgo/CSGO2_main_image.jpg" alt="main codMW2 foto" width="200" height="100">
-              </div>
-            </a>
-          </div>
-          <div class="col-2"></div>
-        </div>
-        <div class="row gx-1 row-cols-3 mb-3">
-          <div class="col-2"></div>
-          <div class="col-8 ">
-            <div class="itemcontainer item2">
-              <div class="iteminternal">
-                <img src="./Images/codMW2/codMW2_main_foto.jpg" alt="main codMW2 foto" width="200" height="100">
-              </div>
-            </div>
-          </div>
-          <div class="col-2"></div>
-        </div>
-        <div class="row gx-1 row-cols-3 mb-3">
-          <div class="col-2"></div>
-          <div class="col-8">
-            <div class="itemcontainer item3">
-              <div class="iteminternal">
-                <img src="./Images/RL/RL_main_foto.jpg" alt="main RL foto" width="200" height="100">
-              </div>
-            </div>
-          </div>
-          <div class="col-3"></div>
-        </div>
-        <div class="row gx-1 row-cols-3 mb-3">
-          <div class="col-2"></div>
-          <div class="col-8 ">
-            <div class="itemcontainer item4">
-              <div class="iteminternal">
-                <img src="./Images/GTA_VI/gta6.jpg" alt="main GTA_VI foto" width="200" height="100">
-              </div>
-            </div>
-          </div>
-          <div class="col-2"></div>
-        </div>
-        <div class="row gx-1 row-cols-3 mb-3">
-          <div class="col-2"></div>
-          <div class="col-8 ">
-            <div class="itemcontainer item5">
-              <div class="iteminternal">
-                <img src="./Images/codBO5/codBO5.jpg" alt="main codBO5 foto" width="200" height="100">
-              </div>
-            </div>
-          </div>
-          <div class="col-2"></div>
-        </div>
-    </div>
+      </div>
 </body>
 </html>
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
