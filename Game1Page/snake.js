@@ -39,12 +39,12 @@ var foodImages = [
 ];
 
 var snakeHeadImage = new Image();
-snakeHeadImage.src = "resources/snakeHead.png";
+snakeHeadImage.src = "resources/Snake_Hoofd_rect848-9.png";
 
 var snakeTailImages = [new Image(), new Image()];
 // Load image for snake tail
 for (let i = 0; i < snakeTailImages.length; i++) {
-  snakeTailImages[i].src = "resources/snakeTail.png";
+  snakeTailImages[i].src = "resources/Snake_Blokje_rect848.png";
 }
 
 // Start game
@@ -139,18 +139,28 @@ function drawPlayerAndFood() {
   for (let i = 0; i < snakeBody.length - 1; i++) {
     var tailAngle = getAngle(snakeBody[i][0] - snakeBody[i + 1][0], snakeBody[i][1] - snakeBody[i + 1][1]);
     drawRotatedImage(snakeTailImages[i % snakeTailImages.length], snakeBody[i][0], snakeBody[i][1], blockSize, blockSize, tailAngle);
-    //context.drawImage(snakeTailImages[i % snakeTailImages.length], snakeBody[i][0], snakeBody[i][1], blockSize, blockSize);
   }
 
   var angle = getAngle(velocityX, velocityY);
   drawRotatedImage(snakeHeadImage, snakeX, snakeY, blockSize, blockSize, angle);
-  //context.drawImage(snakeHeadImage, snakeX, snakeY, blockSize, blockSize);
 
+  if (!activeFoodImage) {
+    activeFoodImage = foodImages[Math.floor(Math.random() * foodImages.length)];
+  }
+
+  // New image object for food
+  var foodImage = new Image();
+  foodImage.src = activeFoodImage;
+
+  // Draw food as image
+  context.drawImage(foodImage, foodX, foodY, blockSize, blockSize);
+
+/*
   var foodImage = new Image();
   foodImage.src = activeFoodImage;
   foodImage.onload = function() {
     context.drawImage(foodImage, foodX, foodY, blockSize, blockSize);
-  };
+  }; */
 }
 
 function placeFood() {
@@ -161,19 +171,19 @@ function placeFood() {
 
 function changeDirection(e) {
   // Function for moving snake
-    if (e.code == "ArrowUp" && velocityY != 1) {
+    if (e.code == "KeyW" && velocityY != 1) {
         velocityX = 0;
         velocityY = -1;
     }
-    else if (e.code == "ArrowDown" && velocityY != -1) {
+    else if (e.code == "KeyS" && velocityY != -1) {
         velocityX = 0;
         velocityY = 1;
     }
-    else if (e.code == "ArrowLeft" && velocityX != 1) {
+    else if (e.code == "KeyA" && velocityX != 1) {
         velocityX = -1;
         velocityY = 0;
     }
-    else if (e.code == "ArrowRight" && velocityX != -1) {
+    else if (e.code == "KeyD" && velocityX != -1) {
         velocityX = 1;
         velocityY = 0;
     }  
