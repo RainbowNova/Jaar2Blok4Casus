@@ -25,12 +25,13 @@ header {
     left: 0;
     width: 100%;
     padding: 20px 100px;
-    background: rgba(48, 41, 144, 0.514);
+ 
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 99;
     backdrop-filter: blur(40px);
+
 }
 
 .logo {
@@ -97,8 +98,7 @@ th, td {
     padding-right: 30px;
 }
 
-.btn {
-    padding: 10px 10px;
+.btn { 
     margin: 4px 2px;
     background: rgba(48, 41, 144, 0.514);
     border: none;
@@ -133,6 +133,36 @@ th, td {
 .smallIcon {
     font-size: 40px;
     line-height: 50%;
+}
+
+
+#gamecolumn{
+    margin: 5px; 
+    padding: 5px; 
+    border-radius: 5px; 
+    background: rgba(48, 41, 144, 0.514);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#friend-container{
+    margin-left: 5%
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+
+
+::-webkit-scrollbar-thumb {
+background-color: rgba(48, 41, 144, 0.514);
+border-radius: 5px;
+}
+
+
+::-webkit-scrollbar-track {
+background-color: transparent;
 }
 
 
