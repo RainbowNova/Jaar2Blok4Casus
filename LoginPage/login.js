@@ -19,8 +19,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             'accept': 'text/plain',
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET',
+            'Access-Control-Allow-Methods': 'POST',
             'Access-Control-Allow-Headers': 'Origin, Methods, Content-Type'
+        }
       });
 
       if (response.ok) {
