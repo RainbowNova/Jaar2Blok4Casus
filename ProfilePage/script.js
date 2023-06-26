@@ -1,4 +1,9 @@
+function loadUserData() {
+    const user = JSON.parse(sessionStorage.getItem("user"));
 
+    const username = document.getElementById("username");
+    username.textContent = user.username;
+}
 
 function CreateFriend() {
 
@@ -30,5 +35,12 @@ function CreateFriend() {
 }
 
 
+if (sessionStorage.getItem("user") == null) {
+    window.location.href = "../LoginPage/login.html";
+}
+
+else {
+    loadUserData();
+}
 
 

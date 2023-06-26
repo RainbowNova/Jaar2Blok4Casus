@@ -20,7 +20,7 @@ class Header extends HTMLElement {
                                     <a class="nav-link" href="../index.html" style="color: white;">Home</a>
                                 </li>
                                 <li class="nav-item" >
-                                    <a class="nav-link" href="../ProfilePage/Profile.html" style="color: white;">Profile</a>
+                                    <a id="profileButton" class="nav-link" href="../ProfilePage/Profile.html" style="color: white; display: none;">Profile</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="../StorePage/StorePage.html" style="color: white;">Store</a>
@@ -60,6 +60,9 @@ class Header extends HTMLElement {
           if (userLoggedIn()) {
               document.getElementById("loginButton").style.display = "none";
               document.getElementById("logoutButton").style.display = "block";
+              document.getElementById("profileButton").style.display = "block";
+              
+              
              //make logut button
              
              logoutButton.addEventListener("click", () => {
