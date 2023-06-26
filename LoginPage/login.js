@@ -16,9 +16,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       const response = await fetch('https://dampbackendapi.azurewebsites.net/api/Accounts', {
         method: 'GET',
         headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        }
+            'accept': 'text/plain',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET',
+            'Access-Control-Allow-Headers': 'Origin, Methods, Content-Type'
       });
 
       if (response.ok) {
