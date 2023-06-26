@@ -47,12 +47,10 @@ for (let i = 0; i < snakeTailImages.length; i++) {
   snakeTailImages[i].src = "resources/Snake_Blokje_rect848.png";
 }
 
-
+var backgroundMusic = document.getElementById("backgroundMusic");
 
 // Start game
 window.onload = function() {
-  
-  
   board = document.getElementById("board");
   board.height = rows * blockSize;
   board.width = cols * blockSize;
@@ -67,6 +65,8 @@ window.onload = function() {
 
   replayButton = document.getElementById("replayButton");
   replayButton.addEventListener("click", replayGame); 
+
+  backgroundMusic.play();
 }
 
 //Functions
@@ -170,7 +170,7 @@ function placeFood() {
   foodY= Math.floor(Math.random() * rows) * blockSize;
   activeFoodImage = foodImages[Math.floor(Math.random() * foodImages.length)];
 
-  var foodSound = document.getElementById("foodSound");
+    var foodSound = document.getElementById("foodSound");
   foodSound.play();
 }
 
