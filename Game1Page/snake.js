@@ -47,6 +47,8 @@ for (let i = 0; i < snakeTailImages.length; i++) {
   snakeTailImages[i].src = "resources/Snake_Blokje_rect848.png";
 }
 
+
+
 // Start game
 window.onload = function() {
   
@@ -167,6 +169,9 @@ function placeFood() {
   foodX= Math.floor(Math.random() * cols) * blockSize;
   foodY= Math.floor(Math.random() * rows) * blockSize;
   activeFoodImage = foodImages[Math.floor(Math.random() * foodImages.length)];
+
+  var foodSound = document.getElementById("foodSound");
+  foodSound.play();
 }
 
 function changeDirection(e) {
