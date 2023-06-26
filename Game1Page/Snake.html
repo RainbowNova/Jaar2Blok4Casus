@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snake</title>
+  <link rel="stylesheet" href="snake.css">
+  <script src="snake.js"></script>
+  <style>
+    body {
+      background-color: #affaaa;
+    }
+  </style>
+  <script>
+    function goToPage() {
+      window.location.href = "../ProfilePage/Profile.html";
+    }
+  </script>
+</head>
+<body>
+  <div class="game-wrapper">
+    <img src="resources/WotSheader.png" alt="Snake Game Header">
+    <canvas id="board"></canvas>
+    <div id="scoreContainer">Points:
+      <span id="points">0</span>
+    </div>
+    <div id="levelContainer" class="level-container">
+      <div id="level" class="level-text"></div>
+      <div id="levelBarContainer" class="level-bar-container">
+        <div id="levelBar" class="level-bar"></div>
+      </div>
+    </div>
+    <div class="gameInfo-container">
+      <p>Eat the fruit to gain points</p>
+      <p>You will level up as you gain more points</p>
+      <p>Use the arrow keys to turn</p>
+    </div>
+    <div class="replayButton-container">
+        <button id="replayButton">Replay</button>
+    </div>
+  </div>
+  <div class="returnButton-container">
+    <button class="returnButton" onclick="goToPage()">Go back to Profile</button>
+  </div>
+</body>
+</html>

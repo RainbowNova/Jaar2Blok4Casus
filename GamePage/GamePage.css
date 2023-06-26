@@ -1,0 +1,40 @@
+.navbarcustom {
+  background-color: rgba(48, 41, 144, 0.514);
+  backdrop-filter: blur(40px);
+  padding:1%;
+}
+
+.background {
+  background-color: rgba(48, 41, 144, 0.514);
+  color: white;
+}
+
+.Koop-button {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 1px 5px 1px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 3px 0px 3px 0px;
+  border-radius: 3px;
+}
+
+.Koop-button:hover {
+  background-color: #03fda1;
+  color: black;
+}
+
+.full-ht {
+  height: 82vh;
+  position: relative;
+}
+
+.boxes {
+  height: 50vh;
+}
+
+.buyBox {
+  height: 10vh;
+}
