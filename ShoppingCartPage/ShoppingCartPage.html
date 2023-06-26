@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="/ShoppingCartPage/ShoppingCartPage.css">    
     <link rel="stylesheet" href="../HomePageStyle.css"> 
     <script src="../components/nicer_header.js"></script>
-    <script src="/ShoppingCartPage/ShoppingCartPage.js"></script>
     <title>ShoppingCartPage</title>
   </head>
   <body>
@@ -33,7 +32,7 @@
         </div>
         <div class="col-2"></div>
       </div>
-
+      <!--
       <div class="row row-cols-1 mb-3">
         <div class="col-2"></div>
         <div class="col-8">
@@ -62,11 +61,125 @@
           </div>
         </div>
       </div>
+    -->
+    <div class="container">
+      <section id="cart">
+        <article class="game">
+
+        </article>
+      </section>
+    </div>
+
+    <div class="container">
+
+      <section id="cart"> 
+        <div id="game1">
+          <article class="product">
+            <header>
+                <img src="/StorePage/Images/csgo/CSGO2_main_image.jpg" alt="">
+            </header>
+    
+            <div class="content">
+    
+              <h1>Counter Strike 2</h1>
+              
+              Info van de game
+
+            </div>
+    
+            <footer class="content">
+              
+              <button class="remove-button-style" id="game-1" onclick="removegame1()">
+                remove
+              </button>
+              
+              <h2 class="price" id="price-game-1">
+                29.98€
+              </h2>
+    
+            </footer>
+          </article>
+        </div>
+
+        <div id="game2">
+          <article class="product">
+            <header>
+              <img src="/StorePage/Images/codMW2/codMW2_main_foto.jpg" alt="">
+            </header>
+    
+            <div class="content">
+    
+              <h1>Call of Duty Modern Warfare 2</h1>
+    
+              Info van de game
+    
+            </div>
+    
+            <footer class="content">
+
+              <button class="remove-button-style" onclick="removegame2()">
+                remove
+              </button>
+    
+              <h2 class="price" id="price-game-2">
+                79.99€
+              </h2>
+    
+            </footer>
+          </article>
+        </div>
+
+        <div id="game3">
+          <article class="product">
+            <header>
+                <img src="/StorePage/Images/codBO5/codBO5.jpg" alt="">
+            </header>
+    
+            <div class="content">
+    
+              <h1>Call of Duty Black Ops 5</h1>
+    
+              Info van de game
+    
+            </div>
+    
+            <footer class="content">
+
+              <button class="remove-button-style" onclick="removegame3()">
+                remove
+              </button>
+    
+              <h2 class="price" id="price-game-3">
+                53.99€
+              </h2>
+    
+            </footer>
+          </article>
+        </div>
+
+      </section>
+  
+    </div>
+  
+    <footer id="site-footer">
+      <div class="container clearfix">
+  
+        <div class="left">
+          <h2 class="subtotal">Subtotal: <span>163.96</span>€</h2>
+          <h3 class="tax">Taxes (5%): <span>8.2</span>€</h3>
+        </div>
+  
+        <div class="right">
+          <h1 class="total">Total: <span id="total-id">172.16</span>€</h1>
+          <a class="btn">Checkout</a>
+        </div>
+  
+      </div>
+    </footer> 
 
     </div>
 
     </div>
-
-</body>
-<script src="/ShoppingCartPage/ShoppingCartPage.js"></script>
+    <script src="/ShoppingCartPage/ShoppingCartPage.js"></script>
+  </body>
 </html>
