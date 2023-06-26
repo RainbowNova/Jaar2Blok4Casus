@@ -1,47 +1,40 @@
 .navbarcustom {
-    position: relative;
-    background-color: rgba(48, 41, 144, 0.514);
-    backdrop-filter: blur(40px);
-    padding:1%;
-    
-  }
-  .square {
-    position: relative;
-    width: 100%; /* Adjust the width as desired */
-    height: 500px; /* Adjust the height as desired */
-    background-color: rgba(48, 41, 144, 0.514); /* Change the background color as desired */
-    /* Additional styles for the square container */
-  }
+  background-color: rgba(48, 41, 144, 0.514);
+  backdrop-filter: blur(40px);
+  padding:1%;
+}
 
-  .bar {
-    position: relative;
-    width: 100%; /* Adjust the width as desired */
-    height: 100px; /* Adjust the height as desired */
-    background-color: rgba(48, 41, 144, 0.514); /* Change the background color as desired */
-    /* Additional styles for the square container */
-  }
-  
-  .top-left {
-    display: flex;
-    align-items: center;
-  }
-  
-  .image {
-    width: 400px; /* Adjust the width of the top left image as desired */
-    height: auto;
-    /* Additional styles for the top left image */
-  }
-  
-  .static-text {
-    margin-left: 10px; /* Adjust the spacing between the image and text as desired */
-    /* Additional styles for the static text */
-  }
-  
-  .top-right-image {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: auto;
-    width: 300px;
-    /* Additional styles for the top-right image */
-  }
+.background {
+  background-color: rgba(48, 41, 144, 0.514);
+  color: white;
+}
+
+.Koop-button {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 1px 5px 1px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 3px 0px 3px 0px;
+  border-radius: 3px;
+}
+
+.Koop-button:hover {
+  background-color: #03fda1;
+  color: black;
+}
+
+.full-ht {
+  height: 82vh;
+  position: relative;
+}
+
+.boxes {
+  height: 50vh;
+}
+
+.buyBox {
+  height: 10vh;
+}
