@@ -21,28 +21,23 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
       });
 
-        //testing purposes: DELETE CONSOLE LOGS LATER
       if (response.ok) {
         const accounts = await response.json();
         for(const account of accounts) {
-            console.log(account);
             if (account.email == email && account.password == password) {
+                sessionStorage.setItem("user", JSON.stringify(account));
                 console.log("Login successful");
                 window.location.href = "../index.html";
+                break;
             }
             else { 
                 alert("Login failed, please try again")
+                break;
             }
         };
-        console.log('All accounts:', accounts);
-
       } else {
         console.error('Error:', response.status);
-      }
-
-      
-    
-        
+      } 
     });
   });
   

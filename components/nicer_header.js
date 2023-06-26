@@ -33,6 +33,7 @@ class Header extends HTMLElement {
                                 </li>
                             </ul>
                             <button id="loginButton" class="btn btnLogin-popup btn-outline-light">Login</button>
+                            <button id="logoutButton" class="btn btnLogin-popup btn-outline-light" style="display: none;">Log out</button>
                         </div>
     
                 </nav>
@@ -49,17 +50,25 @@ class Header extends HTMLElement {
   
          /*removes login button if user is logged in*/
   
-          /*function userLoggedIn() {
-          if (sessionStorage.getItem("username") != null) {
+          function userLoggedIn() {
+          if (sessionStorage.getItem("user") != null) {
               return true;
           }
           return false;
           }
-  
+
           if (userLoggedIn()) {
               document.getElementById("loginButton").style.display = "none";
+              document.getElementById("logoutButton").style.display = "block";
+             //make logut button
+             
+             logoutButton.addEventListener("click", () => {
+                sessionStorage.removeItem("user");
+                window.location.href = "../LoginPage/login.html";
+            });
+             
           }
-          */
+        
           
     }
   }
