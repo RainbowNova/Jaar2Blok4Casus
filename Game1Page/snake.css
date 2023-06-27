@@ -9,6 +9,7 @@ body {
   }
   
 .game-wrapper {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -66,7 +67,7 @@ body {
 
 .replayButton-container {
     position: absolute;
-    top: 60%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     visibility: hidden;
@@ -84,4 +85,15 @@ body {
     border-radius: 4px;
     cursor: pointer;
 }
-  
+
+.muteButton-container {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+}
+
+.muteButton-container button {
+    background: none;
+    border: none;
+    padding: 0;
+}

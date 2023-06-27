@@ -42,17 +42,19 @@
     <div class="replayButton-container">
         <button id="replayButton">Replay</button>
     </div>
-    <div class="muteButton-container">
-      <button id="muteButton" style="display: none" onclick="toggleMute()">
-      <img src="resources/muteButtonOff.png" alt="Mute Button OFF">
-      </button>
-      <button id="unmuteButton" onclick="toggleMute()">
-      <img src="resources/muteButtonOn.png" alt="Mute Button ON">
-      </button>
-    </div>
   </div>
   <div class="returnButton-container">
     <button class="returnButton" onclick="goToPage()">Go back to Profile</button>
+  </div>
+  <div class="muteButton-container">
+    <button id="muteButton" style="display: none" onclick="toggleMute()">
+    <img src="resources/muteButtonOff.png" alt="Mute Button OFF"
+    style="width: 32px; height: 32px; padding: 0; border: none;">
+    </button>
+    <button id="unmuteButton" onclick="toggleMute()">
+    <img src="resources/muteButtonOn.png" alt="Mute Button ON"
+    style="width: 32px; height: 32px; padding: 0; border: none;">
+    </button>
   </div>
 </body>
 </html>
