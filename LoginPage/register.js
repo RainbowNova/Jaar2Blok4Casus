@@ -38,6 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (response.ok) {
           // Registration successful
           console.log('Registration successful!');
+          const loginLink = document.querySelector('.login-link');
+          document.getElementById("register-form").reset();
+          
+        
+          //redirect to login page
+          loginLink.click();
+    
           // You can redirect the user or display a success message here
         } else {
           // Registration failed
