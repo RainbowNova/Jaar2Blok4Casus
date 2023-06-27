@@ -10,7 +10,7 @@ class Header extends HTMLElement {
          
                 <nav class="navbar navbar-expand-lg navbar-light bg-custom fixed-top" style="background-color: rgba(48, 41, 144, 0.514);">  
                     <a class="navbar-brand logo" href="../index.html" style="margin-left:10px;">Damp</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" style="margin-right:10px;" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
