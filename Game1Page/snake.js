@@ -48,6 +48,7 @@ for (let i = 0; i < snakeTailImages.length; i++) {
 }
 
 var backgroundMusic = document.getElementById("backgroundMusic");
+var isMute = false;
 
 // Start game
 window.onload = function() {
@@ -296,3 +297,29 @@ function drawRotatedImage(image, x, y, width, height, angle) {
   context.drawImage(image, -width / 2, -height / 2, width, height);
   context.restore();
 }
+
+function toggleMute() {
+  var muteButton = document.getElementById("muteButton");
+  var unmuteButton = document.getElementById("unmuteButton");
+
+  
+  if (isMute) {
+    isMute = false;
+    muteButton.style.display = "none";
+    unmuteButton.style.display = "inline-block";
+    setVolume(1);
+  } else {
+    isMute = true;
+    muteButton.style.display = "inline-block";
+    unmuteButton.style.display = "none";
+    setVolume(0);
+  }
+}
+
+function setVolume(volume) {
+  var audioElements = document.getElementsByTagName("audio");
+  for (var i = 0; i < audioElements.length; i++) {
+    audioElements[i].volume = volume;
+  }
+}
+
