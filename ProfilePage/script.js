@@ -34,13 +34,13 @@ function CreateFriend() {
 
 }
 
+//Redirect to login if not logged in
+//if (sessionStorage.getItem("user") == null) {
+//    window.location.href = "../LoginPage/login.html";
+//}
 
-if (sessionStorage.getItem("user") == null) {
-    window.location.href = "../LoginPage/login.html";
-}
-
-else {
-    loadUserData();
-}
-
+//else {
+//    loadUserData();
+//}
+loadUserData();
 
