@@ -3,20 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Snake</title>
   <link rel="stylesheet" href="snake.css">
-  <script src="snake.js"></script>
-  <style>
-    body {
-      background-color: #affaaa;
-    }
-  </style>
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-database.js"></script>
+  <script type="module" src="snake.js"></script>
   <script>
     function goToPage() {
       window.location.href = "../ProfilePage/Profile.html";
     }
   </script>
-  <audio id="backgroundMusic" src="resources/backgroundMusic.wav" autoplay loop></audio>
   <audio id="foodSound">
     <source src="resources/foodSound.wav" type="audio/wav">
   </audio>
@@ -42,19 +37,25 @@
     <div class="replayButton-container">
         <button id="replayButton">Replay</button>
     </div>
+    <div>
+      <button id="starButton">Start Game</button>
+    </div>
   </div>
   <div class="returnButton-container">
     <button class="returnButton" onclick="goToPage()">Go back to Profile</button>
   </div>
   <div class="muteButton-container">
     <button id="muteButton" style="display: none" onclick="toggleMute()">
-    <img src="resources/muteButtonOff.png" alt="Mute Button OFF"
+    <img src="resources/muteButtonOn.png" alt="Mute Button OFF"
     style="width: 32px; height: 32px; padding: 0; border: none;">
     </button>
     <button id="unmuteButton" onclick="toggleMute()">
-    <img src="resources/muteButtonOn.png" alt="Mute Button ON"
+    <img src="resources/muteButtonOff.png" alt="Mute Button ON"
     style="width: 32px; height: 32px; padding: 0; border: none;">
     </button>
   </div>
+  <audio id="backgroundMusic" loop autoplay>
+    <source type="audio/wav" src="resources/backgroundMusic.wav">
+  </audio>
 </body>
 </html>

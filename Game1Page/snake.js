@@ -1,3 +1,23 @@
+/*import { initializeApp } from "firebase/app";
+import{
+    getFireStore, collection, onSnapShot,
+    query, addDoc, doc, where, orderBy, limit,
+    getDoc, updateDoc, getDocs, setDoc
+} from 'firebase/firestore';
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCGi7d3hQFtXooGw_HosUqGrH0dBJYojYI",
+    authDomain: "damp-c7a9d.firebaseapp.com",
+    projectId: "damp-c7a9d",
+    storageBucket: "damp-c7a9d.appspot.com",
+    messagingSenderId: "1045743798558",
+    appId: "1:1045743798558:web:8ac8bd44114553396ee10f"
+  };
+
+initializeApp(firebaseConfig);
+
+const db = getFireStore(); */
+
 // Variables
 // Board for snake
 var blockSize= 25;
@@ -16,7 +36,7 @@ var snakeY= blockSize * 5;
 var velocityX= 0;
 var velocityY= 0;
 
-var snakeBody = [];
+var snakeBody = []; 
 
 // Food
 var foodX;
@@ -50,14 +70,26 @@ for (let i = 0; i < snakeTailImages.length; i++) {
 var backgroundMusic = document.getElementById("backgroundMusic");
 var isMute = false;
 
+var startButton = document.getElementById("startButton");
+//startButton.addEventListener("click", startGame);
+
 // Start game
 window.onload = function() {
+  startGame();
+}
+
+//Functions
+function startGame() {
   board = document.getElementById("board");
   board.height = rows * blockSize;
   board.width = cols * blockSize;
   context = board.getContext("2d"); 
 
   var replayButton;
+
+  //startButton.style.display = "none";
+  document.removeEventListener("keyup", startGame);
+  document.addEventListener("keyup", changeDirection);
 
   placeFood();
   document.addEventListener("keyup", changeDirection);
@@ -70,7 +102,6 @@ window.onload = function() {
   backgroundMusic.play();
 }
 
-//Functions
 function update() {
   var context = board.getContext("2d");
 
@@ -157,13 +188,6 @@ function drawPlayerAndFood() {
 
   // Draw food as image
   context.drawImage(foodImage, foodX, foodY, blockSize, blockSize);
-
-/*
-  var foodImage = new Image();
-  foodImage.src = activeFoodImage;
-  foodImage.onload = function() {
-    context.drawImage(foodImage, foodX, foodY, blockSize, blockSize);
-  }; */
 }
 
 function placeFood() {
@@ -246,7 +270,6 @@ function keepPoints() {
   document.getElementById("levelBar").style.width = progress + "%";
   
   updateLevel();
-  localStorage.setItem("points", points);
 }
 
 function preloadImages() {
