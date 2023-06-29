@@ -10,7 +10,7 @@ class Header extends HTMLElement {
          
                 <nav class="navbar navbar-expand-lg navbar-light bg-custom fixed-top" style="background-color: rgba(48, 41, 144, 0.514);">  
                     <a class="navbar-brand logo" href="../index.html" style="margin-left:10px;">Damp</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" style="margin-right:10px;" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
@@ -20,7 +20,7 @@ class Header extends HTMLElement {
                                     <a class="nav-link" href="../index.html" style="color: white;">Home</a>
                                 </li>
                                 <li class="nav-item" >
-                                    <a class="nav-link" href="../ProfilePage/Profile.html" style="color: white;">Profile</a>
+                                    <a id="profileButton" class="nav-link" href="../ProfilePage/Profile.html" style="color: white; display: none;">Profile</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="../StorePage/StorePage.html" style="color: white;">Store</a>
@@ -33,6 +33,7 @@ class Header extends HTMLElement {
                                 </li>
                             </ul>
                             <button id="loginButton" class="btn btnLogin-popup btn-outline-light">Login</button>
+                            <button id="logoutButton" class="btn btnLogin-popup btn-outline-light" style="display: none;">Log out</button>
                         </div>
     
                 </nav>
@@ -49,17 +50,28 @@ class Header extends HTMLElement {
   
          /*removes login button if user is logged in*/
   
-          /*function userLoggedIn() {
-          if (sessionStorage.getItem("username") != null) {
+          function userLoggedIn() {
+          if (sessionStorage.getItem("user") != null) {
               return true;
           }
           return false;
           }
-  
+
           if (userLoggedIn()) {
               document.getElementById("loginButton").style.display = "none";
+              document.getElementById("logoutButton").style.display = "block";
+              document.getElementById("profileButton").style.display = "block";
+              
+              
+             //make logut button
+             
+             logoutButton.addEventListener("click", () => {
+                sessionStorage.removeItem("user");
+                window.location.href = "../LoginPage/login.html";
+            });
+             
           }
-          */
+        
           
     }
   }

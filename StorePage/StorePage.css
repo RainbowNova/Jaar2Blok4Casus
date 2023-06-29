@@ -82,11 +82,23 @@
   background-color: rgba(48, 41, 144, 0.514);
   backdrop-filter: blur(40px);
   padding:1%;
-  margin-top: 5%;
+}
 
-  
+.gamecontainer{
+  background-color: rgba(48, 41, 144, 0.514);
+  backdrop-filter: blur(40px);
+  padding:1%;
+  margin: auto;
+  text-decoration: none;
+  color: white;
+
 }
 
 .custombtn {
   vertical-align:middle;
+}
+
+.full-ht {
+  height: 82vh;
+  position: relative;
 }

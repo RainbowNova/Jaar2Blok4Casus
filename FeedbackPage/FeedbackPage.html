@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Feedback Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      box-sizing: border-box; /* Add this property to include padding in width */
+    }
+
+    h1 {
+      text-align: center;
+      color: #337ab7;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-size: 18px;
+      font-weight: bold;
+      color: #555555;
+      margin-bottom: 10px;
+    }
+
+    .image-container {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .image-container img {
+      margin-right: 10px;
+      margin-bottom: 10px;
+      max-width: 100px;
+      max-height: 100px;
+      object-fit: cover;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .image-container img:hover {
+      transform: scale(1.1);
+    }
+
+    .image-button {
+      width: 100px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(51, 122, 183, 0.3);
+      border: 2px dashed rgba(51, 122, 183, 0.5);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .image-button:hover {
+      background-color: rgba(51, 122, 183, 0.5);
+    }
+
+    .add-image-button {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      padding: 10px;
+      background-color: #337ab7;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      text-align: center;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .add-image-button:hover {
+      background-color: #286090;
+    }
+
+    textarea {
+      width: 100%;
+      height: 150px;
+      padding: 10px;
+      font-size: 14px;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+      box-sizing: border-box; /* Add this property to include padding in height */
+    }
+
+    button[type="submit"] {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #337ab7;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      text-align: center;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #286090;
+    }
+
+    /* Popup Styles */
+
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .popup-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      max-width: 600px;
+    }
+
+    .popup-img-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .popup-img-container img {
+      margin-right: 10px;
+      margin-bottom: 10px;
+      max-width: 150px;
+      max-height: 150px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .popup-text {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .popup-buttons {
+      display: flex;
+      justify-content: center;
+    }
+
+    .popup-buttons button {
+      display: inline-block;
+      margin: 0 10px;
+      padding: 10px 20px;
+      background-color: #337ab7;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .popup-buttons button:hover {
+      background-color: #286090;
+    }
+
+    /* emptyPopup styles */
+    .emptyPopup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .emptyPopup-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      max-width: 600px;
+    }
+
+    .emptyPopup-text {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .emptyPopup-buttons {
+      display: flex;
+      justify-content: center;
+    }
+
+    .emptyPopup-buttons button {
+      display: inline-block;
+      margin: 0 10px;
+      padding: 10px 20px;
+      background-color: #337ab7;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .emptyPopup-buttons button:hover {
+      background-color: #286090;
+    }
+  </style>
+  <script>
+    var images = [];
+
+    function addImageInput() {
+      var input = document.createElement('input');
+      input.type = 'file';
+      input.name = 'images[]';
+      input.accept = '.png, .jpg, .jpeg';
+      input.onchange = function (event) {
+        var file = event.target.files[0];
+        if (file) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+            images.push(e.target.result);
+            renderImages();
+          };
+          reader.readAsDataURL(file);
+        }
+      };
+      input.click();
+    }
+
+    function deleteImage(index) {
+      images.splice(index, 1);
+      renderImages();
+    }
+
+    function renderImages() {
+      var container = document.getElementById('imageContainer');
+      container.innerHTML = '';
+
+      for (var i = 0; i < images.length; i++) {
+        var imagePreview = document.createElement('img');
+        imagePreview.src = images[i];
+        imagePreview.onclick = (function (index) {
+          return function () {
+            deleteImage(index);
+          };
+        })(i);
+        container.appendChild(imagePreview);
+      }
+
+      addPlusButton();
+    }
+
+    function openFileExplorer() {
+      addImageInput();
+    }
+
+    function addPlusButton() {
+      var container = document.getElementById('imageContainer');
+      var plusButton = document.getElementById('plusButton');
+
+      if (!plusButton) {
+        plusButton = document.createElement('button');
+        plusButton.id = 'plusButton';
+        plusButton.classList.add('add-image-button');
+        plusButton.innerHTML = '+';
+        plusButton.type = 'button';
+        plusButton.onclick = openFileExplorer;
+        container.appendChild(plusButton);
+      }
+    }
+
+    function validateForm() {
+      var feedback = document.getElementById('feedback').value.trim();
+
+      if (feedback.length < 10) {
+        showEmptyPopup();
+        return false;
+      }
+
+      showPopup();
+      return false;
+    }
+
+    function showEmptyPopup() {
+      var popup = document.getElementById('emptyPopup');
+      var message = "Oops! The feedback should contain at least 10 characters!";
+      var popupText = document.getElementById('emptyPopupText')
+      var closeButton = document.getElementById('closeButton');
+
+      popupText.textContent  = message;
+
+      popup.style.display = 'flex';
+
+      closeButton.onclick = closeEmptyPopup;
+    }
+
+    function showPopup() {
+      var popup = document.getElementById('popup');
+      var popupContent = document.getElementById('popupContent');
+      var popupImgContainer = document.getElementById('popupImgContainer');
+      var popupText = document.getElementById('popupText');
+      var editButton = document.getElementById('editButton');
+      var submitButton = document.getElementById('submitButton');
+
+      popup.style.display = 'flex';
+      popupText.innerHTML = document.getElementById('feedback').value;
+
+      popupImgContainer.innerHTML = '';
+      for (var i = 0; i < images.length; i++) {
+        var imagePreview = document.createElement('img');
+        imagePreview.src = images[i];
+        imagePreview.classList.add('popup-image');
+        popupImgContainer.appendChild(imagePreview);
+      }
+
+      editButton.onclick = closePopup;
+      submitButton.onclick = submitFeedback;
+    }
+
+    function closePopup() {
+      var popup = document.getElementById('popup');
+      popup.style.display = 'none';
+    }
+
+    function closeEmptyPopup() {
+      var popup = document.getElementById('emptyPopup');
+      popup.style.display = 'none';
+    }
+
+    function submitFeedback() {
+      images = [];
+      document.getElementById('feedback').value = '';
+      closePopup();
+      renderImages();
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Feedback</h1>
+
+    <form onsubmit="return validateForm();">
+      <div>
+        <label for="image">Add images if necessary (Click to delete):</label>
+        <div id="imageContainer" class="image-container"></div>
+        <input type="file" id="imageInput" accept=".png, .jpg, .jpeg" onchange="addImageInput()" style="display: none;">
+      </div>
+
+      <div>
+        <label for="feedback">Comment:</label>
+        <textarea name="feedback" id="feedback" rows="5" cols="40"></textarea>
+      </div>
+
+      <button type="submit">Submit Feedback</button>
+    </form>
+  </div>
+
+  <div id="popup" class="popup">
+    <div id="popupContent" class="popup-content">
+      <div id="popupImgContainer" class="popup-img-container"></div>
+      <p id="popupText" class="popup-text"></p>
+      <div class="popup-buttons">
+        <button id="editButton">Edit Feedback</button>
+        <button id="submitButton">Submit Feedback</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="emptyPopup" class="popup">
+    <div id="emptyPopupContent" class="popup-content">
+      <p id="emptyPopupText" class="popup-text"></p>
+      <div class="emptyPopup-buttons">
+        <button id="closeButton">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    addPlusButton();
+  </script>
+</body>
+</html>
