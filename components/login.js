@@ -77,7 +77,7 @@ class login extends HTMLElement {
                 </div>
 
                 <div class="remember-forgot">
-                    <label><input type="checkbox">Agree to terms of service</label>
+                    <label><input type="checkbox" required>Agree to <a href="../ToS/tos.html" style="color:white"> <u>terms of service </u></a></label>
                 </div>
                 <button type="submit" class="btn">Create Account</button>
                 <div class="login-register">
