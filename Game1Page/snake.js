@@ -16,7 +16,7 @@ var snakeY= blockSize * 5;
 var velocityX= 0;
 var velocityY= 0;
 
-var snakeBody = [];
+var snakeBody = []; 
 
 // Food
 var foodX;
@@ -39,24 +39,37 @@ var foodImages = [
 ];
 
 var snakeHeadImage = new Image();
-snakeHeadImage.src = "resources/snakeHead.png";
+snakeHeadImage.src = "resources/Snake_Hoofd_rect848-9.png";
 
 var snakeTailImages = [new Image(), new Image()];
 // Load image for snake tail
 for (let i = 0; i < snakeTailImages.length; i++) {
-  snakeTailImages[i].src = "resources/snakeTail.png";
+  snakeTailImages[i].src = "resources/Snake_Blokje_rect848.png";
 }
+
+var backgroundMusic = document.getElementById("backgroundMusic");
+var isMute = false;
+
+var startButton = document.getElementById("startButton");
+//startButton.addEventListener("click", startGame);
 
 // Start game
 window.onload = function() {
-  
-  
+  startGame();
+}
+
+//Functions
+function startGame() {
   board = document.getElementById("board");
   board.height = rows * blockSize;
   board.width = cols * blockSize;
   context = board.getContext("2d"); 
 
   var replayButton;
+
+  //startButton.style.display = "none";
+  document.removeEventListener("keyup", startGame);
+  document.addEventListener("keyup", changeDirection);
 
   placeFood();
   document.addEventListener("keyup", changeDirection);
@@ -65,9 +78,10 @@ window.onload = function() {
 
   replayButton = document.getElementById("replayButton");
   replayButton.addEventListener("click", replayGame); 
+
+  backgroundMusic.play();
 }
 
-//Functions
 function update() {
   var context = board.getContext("2d");
 
@@ -139,41 +153,47 @@ function drawPlayerAndFood() {
   for (let i = 0; i < snakeBody.length - 1; i++) {
     var tailAngle = getAngle(snakeBody[i][0] - snakeBody[i + 1][0], snakeBody[i][1] - snakeBody[i + 1][1]);
     drawRotatedImage(snakeTailImages[i % snakeTailImages.length], snakeBody[i][0], snakeBody[i][1], blockSize, blockSize, tailAngle);
-    //context.drawImage(snakeTailImages[i % snakeTailImages.length], snakeBody[i][0], snakeBody[i][1], blockSize, blockSize);
   }
 
   var angle = getAngle(velocityX, velocityY);
   drawRotatedImage(snakeHeadImage, snakeX, snakeY, blockSize, blockSize, angle);
-  //context.drawImage(snakeHeadImage, snakeX, snakeY, blockSize, blockSize);
 
+  if (!activeFoodImage) {
+    activeFoodImage = foodImages[Math.floor(Math.random() * foodImages.length)];
+  }
+
+  // New image object for food
   var foodImage = new Image();
   foodImage.src = activeFoodImage;
-  foodImage.onload = function() {
-    context.drawImage(foodImage, foodX, foodY, blockSize, blockSize);
-  };
+
+  // Draw food as image
+  context.drawImage(foodImage, foodX, foodY, blockSize, blockSize);
 }
 
 function placeFood() {
   foodX= Math.floor(Math.random() * cols) * blockSize;
   foodY= Math.floor(Math.random() * rows) * blockSize;
   activeFoodImage = foodImages[Math.floor(Math.random() * foodImages.length)];
+
+    var foodSound = document.getElementById("foodSound");
+  foodSound.play();
 }
 
 function changeDirection(e) {
   // Function for moving snake
-    if (e.code == "ArrowUp" && velocityY != 1) {
+    if (e.code == "KeyW" && velocityY != 1) {
         velocityX = 0;
         velocityY = -1;
     }
-    else if (e.code == "ArrowDown" && velocityY != -1) {
+    else if (e.code == "KeyS" && velocityY != -1) {
         velocityX = 0;
         velocityY = 1;
     }
-    else if (e.code == "ArrowLeft" && velocityX != 1) {
+    else if (e.code == "KeyA" && velocityX != 1) {
         velocityX = -1;
         velocityY = 0;
     }
-    else if (e.code == "ArrowRight" && velocityX != -1) {
+    else if (e.code == "KeyD" && velocityX != -1) {
         velocityX = 1;
         velocityY = 0;
     }  
@@ -230,7 +250,6 @@ function keepPoints() {
   document.getElementById("levelBar").style.width = progress + "%";
   
   updateLevel();
-  localStorage.setItem("points", points);
 }
 
 function preloadImages() {
@@ -281,3 +300,29 @@ function drawRotatedImage(image, x, y, width, height, angle) {
   context.drawImage(image, -width / 2, -height / 2, width, height);
   context.restore();
 }
+
+function toggleMute() {
+  var muteButton = document.getElementById("muteButton");
+  var unmuteButton = document.getElementById("unmuteButton");
+
+  
+  if (isMute) {
+    isMute = false;
+    muteButton.style.display = "none";
+    unmuteButton.style.display = "inline-block";
+    setVolume(1);
+  } else {
+    isMute = true;
+    muteButton.style.display = "inline-block";
+    unmuteButton.style.display = "none";
+    setVolume(0);
+  }
+}
+
+function setVolume(volume) {
+  var audioElements = document.getElementsByTagName("audio");
+  for (var i = 0; i < audioElements.length; i++) {
+    audioElements[i].volume = volume;
+  }
+}
+

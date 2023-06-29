@@ -6,9 +6,11 @@ body {
     margin: 0;
     font-family: "Courier New", 'Courier New', Courier, monospace;
     text-align: center;
+    background-color: #affaaa;
   }
   
 .game-wrapper {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -84,4 +86,15 @@ body {
     border-radius: 4px;
     cursor: pointer;
 }
-  
+
+.muteButton-container {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+}
+
+.muteButton-container button {
+    background: none;
+    border: none;
+    padding: 0;
+}
