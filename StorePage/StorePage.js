@@ -113,17 +113,17 @@ async function createGames(){
         <div class="row gx-1 row-cols-3 mb-3">
         <div class="col-2"></div>
             <a href="../GamePage/GamePage.html?id=${game.id}" class="row col-8 gamecontainer">
-            <div class="col-3 iteminternal">
-                <img src="./Images/csgo/CSGO2_main_image.jpg" alt="main codMW2 foto" width="200" height="100">
-            </div>
-            <div class="row col-6">
-                <div class="row">${game.name}</div>
-                <div class="row">${game.description}</div>
-                <div class="row col-4">${game.developer.name}</div>
-                <div class="col-6">${game.publisher.name}</div>
-            </div>
-            <div class="col-2">discount</div>
-            <div class="col-1">${game.price}</div>
+                <div class="col-3 iteminternal">
+                    <img src="./Images/csgo/CSGO2_main_image.jpg" alt="main codMW2 foto" width="200" height="100">
+                </div>
+                <div class="row col-6">
+                    <div class="row">${game.name}</div>
+                    <div class="row">${game.description}</div>
+                    <div class="row col-4">${game.developer.name}</div>
+                    <div class="col-6">${game.publisher.name}</div>
+                </div>
+                <div class="col-2">discount</div>
+                <div class="col-1">${game.price}</div>
             </a>
         <div class="col-2"></div>
         </div>`})
