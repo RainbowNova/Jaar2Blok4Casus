@@ -4,34 +4,27 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const promise = GetGames();
     promise.then((data) => 
-        data.forEach(game => {
-            GameData.push(game)
+        data.forEach(category => {
+            category.title = category.name
+            category.id = category.id
+            CategoryData.push(category)
         })
     );
 
     promise.then(() => {
-        GameData.forEach(game => {
-            const promise = GetDevelopersBygame(game)
+        CategoryData.forEach(category => {
+            const promise = GetGameByCategory(category)
             promise.then((data) => 
-                game.developer = data
-            );
-        })
-    })
-
-    promise.then(() => {
-        GameData.forEach(game => {
-            const promise = GetPublisherBygame(game)
-            promise.then((data) => 
-                game.publisher = data
+                category.game = data
             );
         })
     })
 
 
-    console.log(GameData)
+    console.log(CategoryData)
 
     promise.then(() => {
-        setTimeout(() => createGames(), 400);
+        setTimeout(() => createCategories(), 400);
     })
     
 });
@@ -55,13 +48,13 @@ async function GetGames(){
         return data
         } 
     catch (error) {
-            console.error(`Could not get Games: ${error}`);
+            console.error(`Could not get Categories: ${error}`);
         }
     }
 
-async function GetDevelopersBygame(game){
+async function GetGameByCategory(game){
     try{ 
-            const response = await fetch('https://dampbackendapi.azurewebsites.net/api/Developers/'+game.developerId, {
+            const response = await fetch('https://dampbackendapi.azurewebsites.net/api/Games/'+category.gameId, {
                 method: 'GET',
                 headers: {
                 'accept': 'text/plain',
@@ -82,49 +75,30 @@ async function GetDevelopersBygame(game){
     }
 }
 
-async function GetPublisherBygame(game){
-    try{ 
-            const response = await fetch('https://dampbackendapi.azurewebsites.net/api/Publishers/'+game.publisherId, {
-                method: 'GET',
-                headers: {
-                'accept': 'text/plain',
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'GET',
-                'Access-Control-Allow-Headers': 'Origin, Methods, Content-Type'
-                }})
-
-            if (!response.ok) { 
-                throw new Error(`HTTP error: ${response.status}`);
-            }
-
-            const data = await response.json();
-            return data
-    } catch (error) {
-        console.error(`Could not get Games: ${error}`);
-    }
-}
-
-
-async function createGames(){
-    GameData.forEach(game => {
-        console.log(game)
+async function createCategories(){
+    CategoryData.forEach(category => {
+        console.log(category)
         document.getElementById('bodydiv').innerHTML+=`
-        <div class="row gx-1 row-cols-3 mb-3">
-        <div class="col-2"></div>
-            <a href="../GamePage/GamePage.html?id=${game.id}" class="row col-8 gamecontainer">
-            <div class="col-3 iteminternal">
-                <img src="./Images/csgo/CSGO2_main_image.jpg" alt="main codMW2 foto" width="200" height="100">
-            </div>
-            <div class="row col-6">
-                <div class="row">${game.name}</div>
-                <div class="row">${game.description}</div>
-                <div class="row col-4">${game.developer.name}</div>
-                <div class="col-6">${game.publisher.name}</div>
-            </div>
-            <div class="col-2">discount</div>
-            <div class="col-1">${game.price}</div>
-            </a>
-        <div class="col-2"></div>
-        </div>`})
+        <div class="container my-0 py-5">
+        <div class="row d-flex justify-content-center">
+          <div class="col-md-12 col-lg-10 col-xl-12">
+            <div class="card">
+              <div class="card-body">
+              <a href="../CategoryPage/CategoryPage.html?id=${category.id}">
+                <div class="d-flex flex-start align-items-center">
+                  <img class="square rounded p-10 shadow-1-strong me-3"
+                    src="https://screenshots.gamebanana.com/img/ico/sprays/530-90_52527762aa96b.jpg" alt="avatar" width="60"
+                    height="60" />
+                  <div>
+                    <h6 class="fw-bold text-primary mb-1">${category.title}</h6>
+                    <p class="text-muted small mb-0">
+                      ${category.description}
+                    </p>
+                  </div>
+                </div>
+              </a>
+          </div>
+        </div>
+      </div>
+    </div>`})
     }
