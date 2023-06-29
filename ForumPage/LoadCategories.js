@@ -1,105 +1,89 @@
-const CategoryData = []
-
 document.addEventListener('DOMContentLoaded', () => {
-    
-    const promise = GetCategories();
-    promise.then((data) => 
-        data.forEach(category => {
-            CategoryData.push(category)
-        })
-    );
+    createCategories();
+    displayCategories();
+  });
 
-    promise.then(() => {
-        CategoryData.forEach(category => {
-            const promise = GetPostsPerCategory(category)
-            promise.then((data) => 
-            category.posts = data
-            );
-        })
-    })
-
-    promise.then(() => {
-        CategoryData.forEach(category => {
-            const promise = GetGamesPerCategory(category)
-            promise.then((data) => 
-            category.posts = data
-            );
-        })
-    })
-
-    console.log(GameData)
-
-    promise.then(() => {
-        setTimeout(() => createGames(), 400);
-    })
-    
-});
-
-async function GetCategories(){
-    try{
-        const response = await fetch('https://dampbackendapi.azurewebsites.net/api/Categories', {
-            method: 'GET',
-            headers: {
-            'accept': 'text/plain',
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET',
-            'Access-Control-Allow-Headers': 'Origin, Methods, Content-Type'
-            }})
-        if (!response.ok) { 
-            throw new Error(`HTTP error: ${response.status}`);
-        }
-
-        const data = await response.json();
-        return data
-        } 
-    catch (error) {
-            console.error(`Could not get Categories: ${error}`);
-        }
-    }
-
-async function GetPostsPerCategory(category){
-    try{ 
-            const response = await fetch('https://dampbackendapi.azurewebsites.net/api/Categories/'+category.posts, {
-                method: 'GET',
-                headers: {
-                'accept': 'text/plain',
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'GET',
-                'Access-Control-Allow-Headers': 'Origin, Methods, Content-Type'
-                }})
-
-            if (!response.ok) { 
-                throw new Error(`HTTP error: ${response.status}`);
-            }
-
-            const data = await response.json();
-            return data
+  // Function to fetch game data from the API
+async function fetchGameData() {
+    try {
+      const response = await fetch('https://dampbackendapi.azurewebsites.net/api/Games');
+      if (!response.ok) {
+        throw new Error(`HTTP error: ${response.status}`);
+      }
+      const data = await response.json();
+      return data;
     } catch (error) {
-        console.error(`Could not get Games: ${error}`);
+      console.error(`Failed to fetch game data: ${error}`);
     }
-}
-
-async function createGames(){
-    GameData.forEach(game => {
-        console.log(game)
-        document.getElementById('bodydiv').innerHTML+=`
-        <div class="row gx-1 row-cols-3 mb-3">
-        <div class="col-2"></div>
-            <a href="../GamePage/GamePage.html?id=${game.id}" class="row col-8 gamecontainer">
-            <div class="col-3 iteminternal">
-                <img src="./Images/csgo/CSGO2_main_image.jpg" alt="main codMW2 foto" width="200" height="100">
-            </div>
-            <div class="row col-6">
-                <div class="row">${game.name}</div>
-                <div class="row">${game.description}</div>
-                <div class="row col-4">${game.developer.name}</div>
-                <div class="col-6">${game.publisher.name}</div>
-            </div>
-            <div class="col-2">discount</div>
-            <div class="col-1">${game.price}</div>
-            </a>
-        <div class="col-2"></div>
-        </div>`})
+  }
+  
+  // Function to create categories based on game data
+  async function createCategories() {
+    try {
+      const gameData = await fetchGameData();
+      const categories = gameData.map((game) => ({
+        title: game.name,
+        description: game.description,
+        gameId: game.id,
+      }));
+  
+      // Send a POST request to create categories in the API
+      const response = await fetch('https://dampbackendapi.azurewebsites.net/api/Categories', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(categories),
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error: ${response.status}`);
+      }
+      console.log('Categories created successfully');
+    } catch (error) {
+      console.error(`Failed to create categories: ${error}`);
     }
+  }
+  
+  // Function to fetch categories from the API
+  async function fetchCategories() {
+    try {
+      const response = await fetch('https://dampbackendapi.azurewebsites.net/api/Categories');
+      if (!response.ok) {
+        throw new Error(`HTTP error: ${response.status}`);
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error(`Failed to fetch categories: ${error}`);
+    }
+  }
+  
+  // Function to display categories on the forum page
+  async function displayCategories() {
+    try {
+      const categories = await fetchCategories();
+      const forumContainer = document.getElementById('forum-container');
+  
+      // Clear existing content in the forum container
+      forumContainer.innerHTML = '';
+  
+      // Create and append category elements to the forum container
+      categories.forEach((category) => {
+        const categoryElement = document.createElement('div');
+        categoryElement.innerHTML = `
+          <h2>${category.title}</h2>
+          <p>${category.description}</p>
+          <p>Game ID: ${category.gameId}</p>
+        `;
+        forumContainer.appendChild(categoryElement);
+      });
+    } catch (error) {
+      console.error(`Failed to display categories: ${error}`);
+    }
+  }
+  
+  // Call the functions to create categories and display them on the forum page
+  createCategories();
+  displayCategories();
+  
