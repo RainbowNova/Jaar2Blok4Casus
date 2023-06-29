@@ -19,7 +19,8 @@ var cloudx = windowWidth/3;
 var cloudx2 = windowWidth;
 
 var sunx = windowWidth/12*11;
-var speed = -0.1;
+var speed = -0.1 * windowWidth/600;
+var pipeSpeed = 1 * windowWidth/600;
 
 function setup() {
   resizeElements();
@@ -54,7 +55,8 @@ function resizeElements() {
   cloudx2 = 600 * canvasRatio;
 
   sunx = 550 * canvasRatio;
-  speed = -0.1;
+  speed = -0.1 * canvasRatio;
+  pipeSpeed = 1 * canvasRatio;
 }
 
 function draw () {
@@ -180,8 +182,8 @@ function draw () {
   rect(pipex,pipey2_1,windowWidth/8,windowHeight/10*6);
   rect(pipex2,pipey2_2,windowWidth/8,windowHeight/10*6);
   
-  pipex = pipex - 1;
-  pipex2 = pipex2 - 1;
+  pipex = pipex - pipeSpeed;
+  pipex2 = pipex2 - pipeSpeed;
   
   if (pipex <= -(windowWidth/8)) {
     pipex = windowWidth;
@@ -202,7 +204,8 @@ function draw () {
 //Points
   fill(241,255,28);
   textSize(windowHeight/8);
-  if (pipex + windowWidth/600*75 == birdx || pipex2 + windowWidth/600*75 == birdx) {
+  var marginBird = 2;
+  if (pipex + windowWidth/600*75 <= birdx + marginBird && pipex + windowWidth/600*75 >= birdx - marginBird || pipex2 + windowWidth/600*75 >= birdx - marginBird && pipex2 + windowWidth/600*75 <= birdx + marginBird) {
     points = points + 1;
     text(points,pointsx,windowHeight/8);
   }else{
@@ -298,13 +301,15 @@ function mousePressed() {
 }
 
 function keyPressed() {
-  birdy = windowHeight/2;
-  pipex = windowWidth/3*2;
-  pipex2 = windowWidth/4*5;
-  cloudx = windowWidth/2;
-  cloudx2 = windowWidth;
-  points = 0;
-  pointsx = windowWidth/12*11;
-  sunx = windowWidth/12*11;
-  loop(); 
+  if(keyCode === 32){
+    birdy = windowHeight/2;
+    pipex = windowWidth/3*2;
+    pipex2 = windowWidth/4*5;
+    cloudx = windowWidth/2;
+    cloudx2 = windowWidth;
+    points = 0;
+    pointsx = windowWidth/12*11;
+    sunx = windowWidth/12*11;
+    loop(); 
+  }
 }
