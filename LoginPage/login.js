@@ -3,45 +3,48 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   loginForm.addEventListener('submit', async (event) => {
     event.preventDefault(); // Prevent form submission
-    const email = document.getElementById("email").value.toLowerCase();
-    const password = document.getElementById("password").value;
+    const email = String(document.getElementById("email").value);
+    const password = String(document.getElementById("password").value);
 
     // Prepare the data object
     const data = {
-      "email": email.toLowerCase(),
+      "email": email,
       "password": password
     };
     console.log(data);
-    
-    try {
-      const response = await fetch(`https://dampbackendapi.azurewebsites.net/api/Accounts/email/${email.replace(/@/g, "%40")}`, {
-        method: 'GET',
-        headers: {
-          'accept': 'application/json',
-          'Content-Type': 'application/json'
-        }
-      });
 
-      if (response.ok) {
-        const account = await response.json();
-        let found = false;
-        if (account.email == email && account.password == password) {
+    const response = await fetch('https://dampbackendapi.azurewebsites.net/api/Accounts', {
+      method: 'GET',
+      headers: {
+          'accept': 'text/plain',
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'POST',
+          'Access-Control-Allow-Headers': 'Origin, Methods, Content-Type'
+      }
+    });
+
+    if (response.ok) {
+      const accounts = await response.json();
+      let accountFound = false;
+    
+      for (const account of accounts) {
+        if (account.email === email && account.password === password) {
           sessionStorage.setItem("user", JSON.stringify(account));
           console.log("Login successful");
+          accountFound = true;
           window.location.href = "../index.html";
-          found = true;
+          break;
         }
-
-        if (!found) {
-          alert("Login failed, please try again");
-        }
-      } else {
-        console.error('Error:', response.status);
       }
-    } catch (error) {
-      console.error('Error:', error);
+    
+      if (!accountFound) {
+        console.log("Login failed");
+        alert("Login failed"); 
+      }
+    } else {
+      console.error('Error:', response.status);
     }
-
-    loginForm.reset();
+    
   });
 });
