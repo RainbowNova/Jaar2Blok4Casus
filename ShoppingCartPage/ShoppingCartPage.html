@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/ShoppingCartPage/ShoppingCartPage.css">    
+    <link rel="stylesheet" href="../HomePageStyle.css"> 
+    <script src="../components/nicer_header.js"></script>
+    <title>ShoppingCartPage</title>
+  </head>
+  <body>
+    <header-component></header-component>
+
+    <div class="container-fluid">
+      <div class="row gx-1 row-cols-3 mb-3">
+        <div class="col-2"></div>
+        <div class="col-8 navbarcustom">
+          <div class="row">
+            <div class="col-7 btn-group">
+              <a href="../StorePage/StorePage.html" class="btn btn-primary d-flex justify-content-center align-items-center" role="button">Store</a>
+              <a href="../NewPage/NewPage.html" class="btn btn-primary d-flex justify-content-center align-items-center" role="button">New</a>
+              <a href="../CategoryPage/CategoryPage.html" class="btn btn-primary d-flex justify-content-center align-items-center" role="button">Categories</a>
+              <a href="/ShoppingCartPage/ShoppingCartPage.html" class="btn btn-primary d-flex justify-content-center align-items-center" role="button">Cart</a>
+            </div>
+            <div class="col-4 btn-group">
+              <input class="form-control col-1" type="text" placeholder="Search">
+              <button class="btn btn-secondary col" type="submit">Search</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-2"></div>
+      </div>
+      <!--
+      <div class="row row-cols-1 mb-3">
+        <div class="col-2"></div>
+        <div class="col-8">
+          <div class="row">
+
+            <div class="col-sm-12">
+              <article class="product">
+
+                  <a href="../GamePage/GamePage.html">
+                    <div class="top-left">
+                      <img src="/StorePage/Images/csgo/CSGO2_main_image.jpg" class="image-product" alt="Large Image">
+                      <div class="col-sm-2">
+                        <div class="static-text">dd</div>
+                      </div>
+                    </div>
+                  </a>
+
+                <div class="top-left">
+                  <img src="/StorePage/Images/codMW2/codMW2_main_foto.jpg" class="image-product" alt="Large Image">
+                  <div class="static-text">Info over de game + prijs</div>
+                </div>
+                <div class="static-text-price">Totaal: XX,XX€</div>
+              </article>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+    -->
+    <div class="container">
+      <section id="cart">
+        <article class="game">
+
+        </article>
+      </section>
+    </div>
+
+    <div class="container">
+
+      <section id="cart"> 
+        <div id="game1">
+          <article class="product">
+            <header>
+                <img src="/StorePage/Images/csgo/CSGO2_main_image.jpg" alt="">
+            </header>
+    
+            <div class="content">
+    
+              <h1>Counter Strike 2</h1>
+              
+              Info van de game
+
+            </div>
+    
+            <footer class="content">
+              
+              <button class="remove-button-style" id="game-1" onclick="removegame1()">
+                remove
+              </button>
+              
+              <h2 class="price" id="price-game-1">
+                29.98€
+              </h2>
+    
+            </footer>
+          </article>
+        </div>
+
+        <div id="game2">
+          <article class="product">
+            <header>
+              <img src="/StorePage/Images/codMW2/codMW2_main_foto.jpg" alt="">
+            </header>
+    
+            <div class="content">
+    
+              <h1>Call of Duty Modern Warfare 2</h1>
+    
+              Info van de game
+    
+            </div>
+    
+            <footer class="content">
+
+              <button class="remove-button-style" onclick="removegame2()">
+                remove
+              </button>
+    
+              <h2 class="price" id="price-game-2">
+                79.99€
+              </h2>
+    
+            </footer>
+          </article>
+        </div>
+
+        <div id="game3">
+          <article class="product">
+            <header>
+                <img src="/StorePage/Images/codBO5/codBO5.jpg" alt="">
+            </header>
+    
+            <div class="content">
+    
+              <h1>Call of Duty Black Ops 5</h1>
+    
+              Info van de game
+    
+            </div>
+    
+            <footer class="content">
+
+              <button class="remove-button-style" onclick="removegame3()">
+                remove
+              </button>
+    
+              <h2 class="price" id="price-game-3">
+                53.99€
+              </h2>
+    
+            </footer>
+          </article>
+        </div>
+
+      </section>
+  
+    </div>
+  
+    <footer id="site-footer">
+      <div class="container clearfix">
+  
+        <div class="left">
+          <h2 class="subtotal">Subtotal: <span>163.96</span>€</h2>
+          <h3 class="tax">Taxes (5%): <span>8.2</span>€</h3>
+        </div>
+  
+        <div class="right">
+          <h1 class="total">Total: <span id="total-id">172.16</span>€</h1>
+          <a class="btn">Checkout</a>
+        </div>
+  
+      </div>
+    </footer> 
+
+    </div>
+
+    </div>
+    <script src="/ShoppingCartPage/ShoppingCartPage.js"></script>
+  </body>
+</html>

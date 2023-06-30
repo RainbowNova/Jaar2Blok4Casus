@@ -1,0 +1,28 @@
+    .background {
+        padding: 1%;
+        background-color: rgba(48, 41, 144, 0.514);
+        color: white;
+    }
+
+    .full-ht {
+        height: 82vh;
+        position: relative;
+    }
+
+    .label{
+        margin-bottom: 20px;
+    }
+
+    .textLabel{
+        text-align: left;
+        
+    }
+
+    .btn-primary:hover{
+        background-color: rgb(86, 73, 180);
+    }
+
+    .btn.show{
+        background-color: rgb(86, 73, 180);
+    }
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="snake.css">
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-database.js"></script>
+  <script type="module" src="snake.js"></script>
+  <script>
+    function goToPage() {
+      window.location.href = "../ProfilePage/Profile.html";
+    }
+  </script>
+  <audio id="foodSound">
+    <source src="resources/foodSound.wav" type="audio/wav">
+  </audio>
+</head>
+<body>
+  <div class="game-wrapper">
+    <img src="resources/WotSheader.png" alt="Snake Game Header">
+    <canvas id="board"></canvas>
+    <div id="scoreContainer">Points:
+      <span id="points">0</span>
+    </div>
+    <div id="levelContainer" class="level-container">
+      <div id="level" class="level-text"></div>
+      <div id="levelBarContainer" class="level-bar-container">
+        <div id="levelBar" class="level-bar"></div>
+      </div>
+    </div>
+    <div class="gameInfo-container">
+      <p>Eat the fruit to gain points</p>
+      <p>You will level up as you gain more points</p>
+      <p>Use the WASD keys to turn</p>
+    </div>
+    <div class="replayButton-container">
+        <button id="replayButton">Replay</button>
+    </div>
+  </div>
+  <div class="returnButton-container">
+    <button class="returnButton" onclick="goToPage()">Go back to Profile</button>
+  </div>
+  <div class="muteButton-container">
+    <button id="muteButton" style="display: none" onclick="toggleMute()">
+    <img src="resources/muteButtonOn.png" alt="Mute Button OFF"
+    style="width: 32px; height: 32px; padding: 0; border: none;">
+    </button>
+    <button id="unmuteButton" onclick="toggleMute()">
+    <img src="resources/muteButtonOff.png" alt="Mute Button ON"
+    style="width: 32px; height: 32px; padding: 0; border: none;">
+    </button>
+  </div>
+  <audio id="backgroundMusic" loop autoplay>
+    <source type="audio/wav" src="resources/backgroundMusic.wav">
+  </audio>
+</body>
+</html>
